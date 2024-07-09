@@ -8,15 +8,16 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import claritymindLogo from './IMG/Estudio de Yoga-Photoroom.png'; 
+import claritymindLogo from './IMG/Estudio de Yoga-Photoroom.png';
+import { Link } from 'react-router-dom';
 
 const pages = ['Meditacion Guiada', 'Control diario'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -35,7 +36,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  
+
   return (
     <AppBar position="static" sx={{ background: '#F9D689', color: '#26355D', height: '100px' }}>
       <Container maxWidth="xl">
@@ -125,6 +126,9 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
+          <Box sx={{ flexGrow: 0.2, color: '#26355D', }}>
+            <Button color='inherit'><Link to="/login">Login</Link></Button>
+          </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -159,6 +163,8 @@ function ResponsiveAppBar() {
       </Container>
     </AppBar>
   );
+
 }
 
-export default ResponsiveAppBar;
+
+export default NavBarComponent;
