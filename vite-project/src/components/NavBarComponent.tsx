@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import claritymindLogo from './IMG/Estudio de Yoga-Photoroom.png';
 import { Link } from 'react-router-dom';
+import Search from './Search/Search'
 
 const pages = ['Meditacion Guiada', 'Control diario'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -126,7 +127,11 @@ function NavBarComponent() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0.2, color: '#26355D', }}>
+          <Box sx={{ flexGrow: 3, display: 'flex', justifyContent: 'center' }}>
+            <Search />
+          </Box>
+
+          <Box sx={{ flexGrow: 0.08, color: '#26355D', }}>
             <Button color='inherit'><Link to="/login">Login</Link></Button>
           </Box>
 
