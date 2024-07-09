@@ -11,9 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import DirectionsIcon from '@mui/icons-material/Directions';
-import claritymindLogo from './IMG/Estudio de Yoga.png'; 
+import claritymindLogo from './IMG/Estudio de Yoga-Photoroom.png'; 
 
 const pages = ['Meditacion Guiada', 'Control diario'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -22,11 +20,11 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = () => {
-    setAnchorElNav(null);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = () => {
-    setAnchorElUser(null);
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -37,11 +35,12 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  
   return (
     <AppBar position="static" sx={{ background: '#F9D689', color: '#26355D', height: '100px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-          <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '80px', mr: 2 }} />
+          <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }} />
           <Typography
             variant="h6"
             noWrap
@@ -125,6 +124,7 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
+
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
