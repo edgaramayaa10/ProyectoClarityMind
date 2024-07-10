@@ -19,8 +19,8 @@ const pages = ['Meditacion Guiada', 'Control diario'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBarComponent() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -36,7 +36,6 @@ function NavBarComponent() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
 
   return (
     <AppBar position="static" sx={{ background: '#F9D689', color: '#26355D', height: '100px' }}>
