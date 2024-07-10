@@ -38,7 +38,7 @@ function NavBarComponent() {
   };
 
   return (
-    <AppBar position="static" sx={{ background: 'white', color: '#D49F11', height: '100px' }}>
+    <AppBar position="static" sx={{ background: 'white', color: '#D49F11', height: '100px', borderBottom:'1px solid gray' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
           <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }} />
@@ -164,6 +164,7 @@ function NavBarComponent() {
               
             </Menu>
           </Box>
+              
         </Toolbar>
       </Container>
     </AppBar>

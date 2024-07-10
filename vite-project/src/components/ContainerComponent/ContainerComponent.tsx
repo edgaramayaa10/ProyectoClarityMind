@@ -10,7 +10,7 @@ const ContainerComponent = () => {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth={'xl'}>
-        <Box sx={{ bgcolor: '#FBF7F0', color:'#045346', height: '400px', width: '100%', p: 2 }}>
+        <Box sx={{ bgcolor: '#FBF7F0', color:'#045346', height: '400px', p: 2 }}>
         <Typography className='title' sx={{fontWeight: 'bold', textAlign:'center', fontFamily:'monospace'}} variant='h5'>¿QUE ES LA MEDITACIÓN?</Typography>
         <Typography className='body' variant='body1' sx={{color: 'black'}}>Estas estresado y no sabes como solucionarlo?</Typography>
         
