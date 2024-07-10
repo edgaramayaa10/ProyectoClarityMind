@@ -38,7 +38,7 @@ function NavBarComponent() {
   };
 
   return (
-    <AppBar position="static" sx={{ background: '#F9D689', color: '#26355D', height: '100px' }}>
+    <AppBar position="static" sx={{ background: 'white', color: '#D49F11', height: '100px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
           <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }} />
@@ -119,7 +119,7 @@ function NavBarComponent() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#1A5319', display: 'block', fontWeight: 'bolder' }}
+                sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
               >
                 {page}
               </Button>
@@ -130,7 +130,7 @@ function NavBarComponent() {
             <Search />
           </Box>
 
-          <Box sx={{ flexGrow: 0.08, color: '#26355D', }}>
+          <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight:'20px'}}>
             <Button color='inherit'><Link to="/login">Login</Link></Button>
           </Box>
 
@@ -161,6 +161,7 @@ function NavBarComponent() {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
+              
             </Menu>
           </Box>
         </Toolbar>

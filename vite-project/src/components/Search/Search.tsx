@@ -5,10 +5,10 @@ import SearchIcon from '@mui/icons-material/Search';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#6F4E37', // Cambiar a color vino
-    color: '#FFD700', // Cambiar a color rojo clarito
+    backgroundColor: '#FBF7F0', // Cambiar a color vino
+    color: 'black', // Cambiar a color rojo clarito
     '&:hover': {
-        backgroundColor: alpha('#6F4E37', 0.75), // Ajustar la opacidad en hover si es necesario
+        backgroundColor: alpha('#FBF7F0', 0.75), // Ajustar la opacidad en hover si es necesario
     },
     marginLeft: 0,
     width: '100%',
