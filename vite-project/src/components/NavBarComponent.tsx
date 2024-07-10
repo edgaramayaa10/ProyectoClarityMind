@@ -171,5 +171,4 @@ function NavBarComponent() {
 
 }
 
-
 export default NavBarComponent;

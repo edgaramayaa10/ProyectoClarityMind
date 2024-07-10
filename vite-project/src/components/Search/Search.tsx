@@ -1,4 +1,3 @@
-
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,10 +5,10 @@ import SearchIcon from '@mui/icons-material/Search';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#E0A75E', // Cambiar a color vino
-    color: '#26355D', // Cambiar a color rojo clarito
+    backgroundColor: '#6F4E37', // Cambiar a color vino
+    color: '#FFD700', // Cambiar a color rojo clarito
     '&:hover': {
-        backgroundColor: alpha('#F9D689', 0.75), // Ajustar la opacidad en hover si es necesario
+        backgroundColor: alpha('#6F4E37', 0.75), // Ajustar la opacidad en hover si es necesario
     },
     marginLeft: 0,
     width: '100%',
@@ -34,17 +33,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: '100%',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        paddingLeft: 'calc(1em + ${theme.spacing(4)})',
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         [theme.breakpoints.up('sm')]: {
             width: '25ch',
             '&:focus': {
                 width: '25ch',
             },
-        },
-        '&::placeholder': {
-            textAlign: 'center',  // Centrar el texto del placeholder
-            marginLeft: theme.spacing(2),  // Ajustar margen izquierdo del placeholder
         },
     },
 }));
