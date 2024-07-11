@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import claritymindLogo from './IMG/Estudio de Yoga-Photoroom.png';
+import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
 import { Link } from 'react-router-dom';
 import Search from './Search/Search'
 
