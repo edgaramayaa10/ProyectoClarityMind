@@ -1,36 +1,27 @@
 import Slider from 'react-slick';
-import { Box, Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardMedia, CardContent} from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import elisabeth from '../IMG/Elisabeth_Blackburn.png'
-
+import elisabeth from '../IMG/1.png'
+import hardvard from '../IMG/2.png'
+import oms from '../IMG/3.png'
 const items = [
   {
     img: elisabeth,
   },
   {
-    title: 'Elisabeth',
-    description: 'Esta es la descripción de la imagen 2.',
+  img: hardvard,
+  },
+  {
+    img: oms,
+  },
+  {
     img: 'https://via.placeholder.com/800x400',
   },
   {
-    title: 'Imagen 3',
-    description: 'Esta es la descripción de la imagen 3.',
     img: 'https://via.placeholder.com/800x400',
   },
   {
-    title: 'Imagen 4',
-    description: 'Esta es la descripción de la imagen 3.',
-    img: 'https://via.placeholder.com/800x400',
-  },
-  {
-    title: 'Imagen 5',
-    description: 'Esta es la descripción de la imagen 3.',
-    img: 'https://via.placeholder.com/800x400',
-  },
-  {
-    title: 'Imagen 6',
-    description: 'Esta es la descripción de la imagen 3.',
     img: 'https://via.placeholder.com/800x400',
   },
   // Agrega más elementos según sea necesario
@@ -53,14 +44,8 @@ function AutoPlayCarousel() {
       <Slider {...settings}>
         {items.map((item, index) => (
           <Card key={index}sx={{height:'400px'}}>
-            <CardMedia component="img" height="400" image={item.img} alt={item.title} />
+            <CardMedia component="img" height="400" image={item.img} />
             <CardContent>
-              <Typography variant="h5" component="div">
-                {item.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item.description}
-              </Typography>
             </CardContent>
           </Card>
         ))}
