@@ -11,7 +11,7 @@ const items = [
   img: "",
   },
   {
-    img: 2,
+    img: "",
   },
   {
     img: 'https://via.placeholder.com/800x400',

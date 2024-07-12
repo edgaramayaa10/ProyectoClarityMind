@@ -15,7 +15,8 @@ import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
 import { Link } from 'react-router-dom';
 import Search from './Search/Search'
 
-const pages = ['Meditacion Guiada', 'Control diario'];
+const pages = ['Meditacion Guiada'];
+const pages1 = ['Control diario'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBarComponent() {
@@ -117,8 +118,10 @@ function NavBarComponent() {
           >
             CLARITYMIND
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft:'100px' }}>
+            <Link to="/meditacion">
             {pages.map((page) => (
+              
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -127,6 +130,21 @@ function NavBarComponent() {
                 {page}
               </Button>
             ))}
+            </Link>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft:'100px' }}>
+            <Link to="/control">
+            {pages1.map((page1) => (
+              
+              <Button
+                key={page1}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
+              >
+                {page1}
+              </Button>
+            ))}
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 3, display: 'flex', justifyContent: 'center' }}>
