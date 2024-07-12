@@ -3,6 +3,7 @@ import './App.css'
 import CardLogIn from './components/CardLogIn/CardLogIn';
 import NavBarComponent from './components/NavBarComponent';
 import ContainerComponent from './components/ContainerComponent/ContainerComponent';
+import CardRegistro from './components/CardRegistro/CardRegistro';
 
 function App() {
   return <>
@@ -10,6 +11,7 @@ function App() {
     <Routes>
       <Route path= "/" element={<ContainerComponent />} />
       <Route path="/login" element={<CardLogIn />} />
+      <Route path="/login/Registrate" element={<CardRegistro />}/>
     </Routes>
   </>;
 }
