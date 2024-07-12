@@ -14,8 +14,8 @@ function App() {
       <Route path= "/" element={<ContainerComponent />} />
       <Route path="/login" element={<CardLogIn />} />
       <Route path="/login/Registrate" element={<CardRegistro />}/>
-      <Route path="/" element={<MeditacionGuiada />}/>
-      <Route path="/" element={<ControlDiario />}/>
+      <Route path="/meditacion" element={<MeditacionGuiada />}/>
+      <Route path="/control" element={<ControlDiario />}/>
     </Routes>
   </>;
 }
