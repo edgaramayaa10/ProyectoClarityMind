@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';  
 import ListItem from '@mui/material/ListItem';
@@ -47,7 +46,6 @@ const MeditacionGuiada = () => {
                 component="main"
                 sx={{ flexGrow: 5, bgcolor: 'background.default', p: 3, marginLeft:'280px' }}
             >
-                <Toolbar />
                 <Typography paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
