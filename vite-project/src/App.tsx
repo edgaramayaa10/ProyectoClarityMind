@@ -11,14 +11,14 @@ import Footer from './components/Footer/Footer';
 function App() {
   return <>
   <NavBarComponent />
-  <Footer />
     <Routes>
       <Route path= "/" element={<ContainerComponent />} />
+      <Route path= "/" element={<Footer />} />
       <Route path="/login" element={<CardLogIn />} />
       <Route path="/login/Registrate" element={<CardRegistro />}/>
       <Route path="/meditacion" element={<MeditacionGuiada />}/>
       <Route path="/control" element={<ControlDiario />}/>
-      
+      <Route path="/" element={<Footer />}/>
 
     </Routes>
   </>;
