@@ -98,7 +98,7 @@ const MeditacionGuiada = () => {
               <ListItemButton
                 sx={{
                   "&:hover": {
-                    bgcolor: "#FFB200", // Cambia el color de fondo al hacer hover
+                    bgcolor: "#E0A75E", // Cambia el color de fondo al hacer hover
                   },
                 }}
               >
