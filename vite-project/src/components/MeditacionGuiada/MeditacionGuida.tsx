@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useState } from 'react';
-=======
 import React, { useState } from 'react';
->>>>>>> 4678929b3cadde873c6d75a0e8fbe02ec80a0bff
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
