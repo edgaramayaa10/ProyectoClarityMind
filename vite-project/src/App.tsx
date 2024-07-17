@@ -3,7 +3,7 @@ import './App.css'
 import CardLogIn from './components/CardLogIn/CardLogIn';
 import NavBarComponent from './components/NavBarComponent';
 import ContainerComponent from './components/ContainerComponent/ContainerComponent';
-import CardRegistro from './components/CardRegistro/CardRegistro';
+import CardRegistroP from './components/CardRegistro/CardRegistroP';
 import MeditacionGuiada from './components/MeditacionGuiada/MeditacionGuida';
 import ControlDiario from './components/ControlDiario/ControlDiario';
 
@@ -13,7 +13,7 @@ function App() {
     <Routes>
       <Route path= "/" element={<ContainerComponent />} />
       <Route path="/login" element={<CardLogIn />} />
-      <Route path="/login/Registrate" element={<CardRegistro />}/>
+      <Route path="/login/Registrate" element={<CardRegistroP />}/>
       <Route path="/meditacion" element={<MeditacionGuiada />}/>
       <Route path="/control" element={<ControlDiario />}/>
 
