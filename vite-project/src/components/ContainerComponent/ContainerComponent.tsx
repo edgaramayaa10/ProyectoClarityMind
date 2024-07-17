@@ -2,7 +2,10 @@ import Slider from 'react-slick';
 import { Box, Card, CardMedia, CardContent} from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import hardvard from '../IMG/El texto del párrafo.png'
+import hardvard from '../IMG/El texto del párrafo.png';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './ContainerComponent.css'
 const items = [
   {
     img: hardvard,

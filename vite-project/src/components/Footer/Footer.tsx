@@ -21,7 +21,6 @@ const Footer = () => {
                 px: 2,
                 mt: 'auto',
                 backgroundColor: '#658147',
-                position: 'fixed',
                 bottom: 0,
                 width: '100%',
             }}
