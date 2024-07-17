@@ -6,7 +6,7 @@ const MeditacionRespiracion = () => {
     <div>
       <Typography variant="h5">Meditacion guiada de atencion a la respiracion</Typography>
       <Typography paragraph>
-        Aquí va el texto específico para Meditaciones Tradicionales.
+        La premisa de este tipo de meditación es que si se logra controlar algo tan simple como la respiración, se puede entrenar la mente en casi cualquier aspecto.
       </Typography>
     </div>
   );

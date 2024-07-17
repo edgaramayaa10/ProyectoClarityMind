@@ -2,25 +2,34 @@ import Slider from 'react-slick';
 import { Box, Card, CardMedia, CardContent} from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import hardvard from '../IMG/El texto del párrafo.png'
+import hardvard from '../IMG/1.png';
+import elisabeth from '../IMG/2.png';
+import oms from '../IMG/3.png';
+import laureys from '../IMG/4.png';
+import hopkins from '../IMG/5.png';
+import yale from '../IMG/6.png';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import './ContainerComponent.css'
 const items = [
   {
     img: hardvard,
   },
   {
-  img: "",
+  img: elisabeth,
   },
   {
-    img: "",
+    img: oms,
   },
   {
-    img: 'https://via.placeholder.com/800x400',
+    img: laureys,
   },
   {
-    img: 'https://via.placeholder.com/800x400',
+    img: hopkins,
   },
   {
-    img: 'https://via.placeholder.com/800x400',
+    img: yale,
   },
   // Agrega más elementos según sea necesario
 ];
@@ -33,7 +42,7 @@ function AutoPlayCarousel() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     arrows: true,
   };
 

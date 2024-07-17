@@ -7,7 +7,7 @@ const MeditacionVisualizaciones = () => {
     <div>
       <Typography variant="h5">Meditacion con visualizaciones</Typography>
       <Typography paragraph>
-        Aquí va el texto específico para Meditaciones Tradicionales.
+        Se imagina un objeto o escena con la intención de lograr una mayor relajación. Unos de los recursos son los rayos de luz de diferentes colores, cada uno de ellos representando una emoción con la que se va a trabajr. 
       </Typography>
     </div>
   );

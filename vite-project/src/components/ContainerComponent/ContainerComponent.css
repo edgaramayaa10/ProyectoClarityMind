@@ -1,0 +1,22 @@
+.slick-dots {
+    position: absolute;
+    bottom: 10px;
+    /* Ajusta este valor según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+}
+
+.slick-dots li button:before {
+    font-size: 7px;
+    /* Tamaño de los puntos */
+    color: grey;
+    /* Color de los puntos */
+}
+
+.slick-dots li.slick-active button:before {
+    color: gray;
+    /* Color de los puntos activos */
+}

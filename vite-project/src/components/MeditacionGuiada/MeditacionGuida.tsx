@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
+import AppBar from '@mui/material/AppBar';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 
 // Importa los componentes de contenido específicos
 import MeditacionesTradicionales from "./MeditacionesTradicionales";
@@ -98,7 +98,7 @@ const MeditacionGuiada = () => {
               <ListItemButton
                 sx={{
                   "&:hover": {
-                    bgcolor: "#F7E7DC", // Cambia el color de fondo al hacer hover
+                    bgcolor: "#E0A75E", // Cambia el color de fondo al hacer hover
                   },
                 }}
               >
