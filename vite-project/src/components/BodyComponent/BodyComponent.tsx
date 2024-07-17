@@ -23,7 +23,7 @@ const BodyComponent = () => {
                     <Grid item xs={4}>
                         <Paper elevation={3} sx={{ padding: '16px', height: '200px', bgcolor: '#FFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <Typography variant="h6" component="div" sx={{ marginBottom: '8px', fontWeight: 'bolder', fontFamily: 'monospace', fontSize: '18px' }}>
-                                Actividad fija
+                                ACTIVIDAD FIJA
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
                                 Intenta al principio que sea siempre a la misma franja horaria, y no cada día a una hora diferente, fíjate un espacio de tiempo diario que tengas claro que puedes.
@@ -33,7 +33,7 @@ const BodyComponent = () => {
                     <Grid item xs={4}>
                         <Paper elevation={3} sx={{ padding: '16px', height: '200px', bgcolor: '#FFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <Typography variant="h6" component="div" sx={{ marginBottom: '8px', fontWeight: 'bolder', fontFamily: 'monospace', fontSize: '18px' }}>
-                                Empieza poco a poco
+                                EMPIEZA POCO A POCO
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
                                 Tienes que ser regular, empieza con poco tiempo y lo vas incrementando poco a poco, no cambies de tiempo según tu disponibilidad.
@@ -43,7 +43,7 @@ const BodyComponent = () => {
                     <Grid item xs={4}>
                         <Paper elevation={3} sx={{ padding: '16px', height: '200px', bgcolor: '#FFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <Typography variant="h6" component="div" sx={{ marginBottom: '8px', fontWeight: 'bolder', fontFamily: 'monospace', fontSize: '18px' }}>
-                                Un lugar tranquilo
+                                UN LUGAR TRANQUILO
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
                                 Acomoda en tu casa un espacio tranquilo y que transmita paz, y si no puedes dedicar un espacio determinado, deja todo preparado para que sea fácil de entrar.
@@ -55,7 +55,7 @@ const BodyComponent = () => {
                     <Grid item xs={5}>
                         <Paper elevation={3} sx={{ padding: '16px', height: '200px', bgcolor: '#FFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <Typography variant="h6" component="div" sx={{ marginBottom: '8px', fontWeight: 'bolder', fontFamily: 'monospace', fontSize: '18px' }}>
-                                Mantener la misma meditación
+                                MANTENER LA MISMA MEDITACIÓN
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
                                 Intenta mantener la misma meditación por lo menos una semana, si se da el caso que no te gusta, busca la que sí lo haga, y mantenla unas 3 semanas.
@@ -65,7 +65,7 @@ const BodyComponent = () => {
                     <Grid item xs={5}>
                         <Paper elevation={3} sx={{ padding: '16px', height: '200px', bgcolor: '#FFF', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <Typography variant="h6" component="div" sx={{ marginBottom: '8px', fontWeight: 'bolder', fontFamily: 'monospace', fontSize: '18px' }}>
-                                No fijarse un objetivo
+                                NO FIJARSE OBJETIVOS
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
                                 La meditación es el arte para estar en el presente, no se trata de sentirse relajado en una nube, no tienes que tener un calendario fijo para conseguir la paz interior.
