@@ -17,7 +17,7 @@ import Search from './Search/Search'
 
 const pages = ['Meditacion Guiada'];
 const pages1 = ['Control diario'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Logout'];
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
