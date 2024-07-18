@@ -83,7 +83,7 @@ const MeditacionGuiada = () => {
             "Meditaciones Tradicionales",
             "Meditacion con visualizaciones",
             "Relajacion y escaneo corporal",
-            "Tonos Binaturales",
+            "Tonos Binaurales",
             "Afirmaciones",
             "Meditacion guiada de atencion a la respiracion",
             "Mindfunless",
