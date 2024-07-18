@@ -58,7 +58,7 @@ const BodyComponent = () => {
                                 MANTENER LA MISMA MEDITACIÓN
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
-                                Intenta mantener la misma meditación por lo menos una semana, si se da el caso que no te gusta, busca la que sí lo haga, y mantenla unas 3 semanas.
+                                Intenta mantener la misma meditación por lo menos una semana, si se da el caso que no te gusta, busca la que sí lo haga, y mantenla 21 días.
                             </Typography>
                         </Paper>
                     </Grid>

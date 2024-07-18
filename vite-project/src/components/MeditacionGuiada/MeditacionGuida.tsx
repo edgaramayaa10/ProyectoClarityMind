@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MeditacionesTradicionales from "./MeditacionesTradicionales";
 import MeditacionVisualizaciones from "./MeditacionVisualizaciones";
 import RelajacionEscaneo from "./RelajacionEscaneo";
-import TonosBinaturales from "./TonosBinaturales";
+import TonosBinaturales from "./TonosBinaurales";
 import Afirmaciones from "./Afirmaciones";
 import MeditacionRespiracion from "./MeditacionRespiracion";
 import Mindfunless from "./Mindfunless";
