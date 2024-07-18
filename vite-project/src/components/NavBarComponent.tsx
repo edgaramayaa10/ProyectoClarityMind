@@ -39,7 +39,7 @@ function NavBarComponent() {
   };
 
   return (
-    <AppBar position="static" sx={{width:'100%', background: 'white', color: '#D49F11', height: '100px', borderBottom:'1px solid gray' }}>
+    <AppBar position="fixed" sx={{width:'100%', background: 'white', color: '#D49F11', height: '100px', borderBottom:'1px solid gray' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
           <Link to= "/">

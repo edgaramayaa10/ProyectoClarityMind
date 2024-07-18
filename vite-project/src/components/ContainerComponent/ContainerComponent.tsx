@@ -47,7 +47,7 @@ function AutoPlayCarousel() {
   };
 
   return (
-    <Box sx={{ width: '100%', margin: 'auto', mt: 0 , }}>
+    <Box sx={{ width: '100%', margin: 'auto', marginTop: '100px' , }}>
       <Slider {...settings}>
         {items.map((item, index) => (
           <Card key={index}sx={{height:'300px'}}>
