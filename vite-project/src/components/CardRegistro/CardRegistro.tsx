@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 const CardLogIn = () => {
     return (
 
-        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 mt-16">
             <div className="mx-auto max-w-lg text-center">
                 <h1 className="text-2xl font-bold sm:text-3xl">Bienvenido a ClarityMind!</h1>
                 <h4 className="text-2xl font-bold sm:text-3xl">Registrate y disfruta de sus ventajas</h4>
