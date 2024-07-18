@@ -30,12 +30,12 @@ const faqItems: FAQItem[] = [
     )
   },
   { question: '¿Qué debo hacer cuando los pensamientos vienen?', answer: 'Pensar es una función natural de la mente, no hay necesidad de detener los pensamientos que se produzcan. Cuando estás meditando y te das cuenta que has estado perdido en tus pensamientos, simplemente regresa tu conciencia al objeto de tu meditación. No hay que hacer nada más. Incluso puedes tomar tus pensamientos como el objeto de la meditación, o descansar en conciencia abierta, dejando que éstos vengan y vayan sin prestarles demasiada atención.' },
-  { question: '¿Cómo puedo contactar con el soporte de Netflix?', answer: '• Puedes contactar con nuestro soporte...' },
-  { question: '¿Cómo puedo encontrar películas en Netflix?', answer: '• Puedes buscar películas usando la función de búsqueda...' },
-  { question: '¿Qué es Netflix?', answer: '• Netflix es un servicio de streaming que ofrece una amplia variedad...' },
-  { question: '¿Puedo descargar contenido para verlo sin conexión?', answer: '• Sí, puedes descargar películas y series para verlas sin conexión...' },
-  { question: '¿Cómo puedo actualizar la información de mi cuenta?', answer: '• Puedes actualizar la información de tu cuenta accediendo a...' },
-  { question: '¿Cuántos dispositivos puedo usar con una cuenta de Netflix?', answer: '• Puedes usar hasta cuatro dispositivos con una cuenta de Netflix...' },
+  { question: '¿Cómo la meditación se relaciona con la vida cotidiana?', answer: 'La meditación nos permite estar más conscientes y presentes en cualquier actividad que hagamos. Tiene un impacto benéfico en prácticamente todos los aspectos de la vida diaria.' },
+  { question: '¿Como se si estoy meditando bien?', answer: 'Una vez adoptados los aspectos clave de la meditación, es importante tener presente que no hay meditaciones buenas o meditaciones malas. Lo que viene forma parte de la experiencia meditativa y como tal lo integramos como parte de nuestro presente.' },
+  { question: '¿Es mejor meditar solo o en grupo?', answer: 'Aunque la meditación es un acto de interiorización individual, es muy recomendable la meditación en grupo' },
+  { question: '¿Es lo mismo el yoga que la meditación?', answer: 'El yoga es una disciplina que implica trabajo corporal, respiratorio y de concentración. La meditación es una técnica para el desarrollo de la mente' },
+  { question: '¿Existe algún límite de edad para la práctica de Yoga?', answer: 'El Yoga es una práctica abierta a cualquier edad. No existe una edad límite, sólo las condiciones que su cuerpo le permita' },
+  { question: '¿Cuándo se empieza a notar los efectos de la meditación?', answer: 'Si te preguntas cuánto tiempo debes ser paciente para ver los efectos, en pocas palabras, con 30-45 minutos de prácticas regulares de meditación diaria durante varias semanas o meses empezarás a ver los efectos positivos' },
 ];
 
 const CustomAccordion = styled(Accordion)({
@@ -72,7 +72,7 @@ const BodyComponent2: React.FC = () => {
     <React.Fragment>
       <CssBaseline />
       <Box sx={{ p: 3, backgroundColor: 'white', textAlign: 'center', minHeight: '100vh', fontFamily: 'monospace' }}>
-        <Typography variant="h4" gutterBottom sx={{ mb: 4, color: 'black', fontFamily: 'monospace' }}>
+        <Typography variant="h4" gutterBottom sx={{ mb: 4, color: '#543310', fontFamily: 'monospace' }}>
           Preguntas Frecuentes
         </Typography>
         {faqItems.map((item, index) => (
