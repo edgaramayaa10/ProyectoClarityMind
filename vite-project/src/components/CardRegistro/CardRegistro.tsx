@@ -88,7 +88,7 @@ const CardLogIn = () => {
 
                 <div className="flex items-center justify-between">
                     <p className="text-sm text-gray-500">
-                        Ya tienes cuenta?
+                        Ya tienes cuenta? 
                         <Link to="/login">
                         <button>Inicia sesion</button>
                         </Link>

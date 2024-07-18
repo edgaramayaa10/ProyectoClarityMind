@@ -2,21 +2,85 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { styled } from '@mui/system';
 
-const BodyComponent2 = () => {
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <Box sx={{ bgcolor: '#FBF5E8', height: '100vh', marginTop: '-5px', padding: '16px' }}>
-                <Typography variant="h4" component="h6" gutterBottom sx={{color:'#D49F11', fontSize: '20px', textAlign: 'center', fontFamily: 'monospace'}}>
-                    Nuestra missión 
-                </Typography>
-                <Typography variant="body1" sx={{textAlign: 'center', color: '#045346', fontFamily:'monospace', fontSize:'35px', marginTop:'30px'}}>
-                    Daros conocimientos y recursos que necesitais para tener mas fuerte vuestra salud mental. 
-                </Typography>
-            </Box>
-        </React.Fragment>
-    );
+interface FAQItem {
+  question: string;
+  answer: string;
 }
+
+const faqItems: FAQItem[] = [
+  { question: '¿Cuánto tiempo deberías dedicarle día a día a practicarlo?', answer: 'Los expertos recomiendan que, como mínimo entre 30 y 45 minutos al día son los necesarios para notar a largo plazo los efectos. Si puedes más, bienvenidos sean.' },
+  { question: '¿Cómo cancelo mi suscripción?', answer: 'Puedes cancelar tu suscripción en cualquier momento...' },
+  { question: '¿Puedo ver Netflix en mi dispositivo móvil?', answer: 'Sí, puedes ver Netflix en tu dispositivo móvil...' },
+  { question: '¿Cómo puedo contactar con el soporte de Netflix?', answer: 'Puedes contactar con nuestro soporte...' },
+  { question: '¿Cómo puedo encontrar películas en Netflix?', answer: 'Puedes buscar películas usando la función de búsqueda...' },
+  { question: '¿Qué es Netflix?', answer: 'Netflix es un servicio de streaming que ofrece una amplia variedad...' },
+  { question: '¿Puedo descargar contenido para verlo sin conexión?', answer: 'Sí, puedes descargar películas y series para verlas sin conexión...' },
+  { question: '¿Cómo puedo actualizar la información de mi cuenta?', answer: 'Puedes actualizar la información de tu cuenta accediendo a...' },
+  { question: '¿Cuántos dispositivos puedo usar con una cuenta de Netflix?', answer: 'Puedes usar hasta cuatro dispositivos con una cuenta de Netflix...' },
+];
+
+const CustomAccordion = styled(Accordion)({
+  backgroundColor: '#543310', // Fondo beige
+  color: 'white', // Texto mostaza
+  borderRadius: '8px', // Bordes redondeados
+  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Sombra suave
+  '&:before': {
+    display: 'none', // Ocultar línea superior
+  },
+  '&:hover': {
+    backgroundColor: 'white', // Marrón en hover
+    color: 'black',
+  },
+  '&.Mui-expanded': {
+    margin: 'auto',
+  },
+});
+
+const CustomAccordionSummary = styled(AccordionSummary)({
+  '& .MuiAccordionSummary-content': {
+    margin: '12px 0', // Espacio interno
+  },
+  '& .MuiIconButton-root': {
+    color: '#D49F11', // Icono expandir (flecha) en color mostaza
+  },
+  '&:hover': {
+    backgroundColor: 'inherit', // Mantener fondo en hover
+  },
+});
+
+const BodyComponent2: React.FC = () => {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Box sx={{ p: 3, backgroundColor: '#AF8F6F', textAlign: 'center', minHeight: '100vh', fontFamily: 'monospace' }}>
+        <Typography variant="h4" gutterBottom sx={{ mb: 4, color: 'black', fontFamily: 'monospace' }}>
+          Preguntas Frecuentes
+        </Typography>
+        {faqItems.map((item, index) => (
+          <Box key={index} sx={{ width: '100%', maxWidth: '500px', mx: 'auto', mb: 5, textAlign: 'left', fontFamily: 'monospace' }}>
+            <CustomAccordion>
+              <CustomAccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`panel${index}-content`}
+                id={`panel${index}-header`}
+              >
+                <Typography variant="subtitle1" sx={{ fontFamily: 'monospace', textAlign: 'left' }}>{item.question}</Typography>
+              </CustomAccordionSummary>
+              <AccordionDetails>
+                <Typography variant="body1" sx={{ fontFamily: 'monospace', textAlign: 'left' }}>{item.answer}</Typography>
+              </AccordionDetails>
+            </CustomAccordion>
+          </Box>
+        ))}
+      </Box>
+    </React.Fragment>
+  );
+};
 
 export default BodyComponent2;
