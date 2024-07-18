@@ -9,7 +9,7 @@ const BodyComponent = () => {
     return (
         <React.Fragment>
             <CssBaseline />
-            <Box sx={{ bgcolor: '#FBF5E8', height: '110vh', marginTop: '-5px', padding: '16px' }}>
+            <Box sx={{ bgcolor: '#FBF5E8', height: '100vh', marginTop: '-5px', padding: '16px' }}>
                 <Typography variant="h4" component="h6" gutterBottom sx={{ color:'#D49F11', fontSize: '20px', textAlign: 'center', fontFamily: 'monospace', marginBottom: '20px' }}>
                     NUESTRA MISIÓN 
                 </Typography>
