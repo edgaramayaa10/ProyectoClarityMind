@@ -14,7 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 import MeditacionesTradicionales from "./MeditacionesTradicionales";
 import MeditacionVisualizaciones from "./MeditacionVisualizaciones";
 import RelajacionEscaneo from "./RelajacionEscaneo";
-import TonosBinaturales from "./TonosBinaurales";
+import TonosBinaurales from './TonosBinaurales';
 import Afirmaciones from "./Afirmaciones";
 import MeditacionRespiracion from "./MeditacionRespiracion";
 import Mindfunless from "./Mindfunless";
@@ -37,7 +37,7 @@ const MeditacionGuiada = () => {
         {selectedTexts.includes("Meditaciones Tradicionales") && <MeditacionesTradicionales />}
         {selectedTexts.includes("Meditacion con visualizaciones") && <MeditacionVisualizaciones />}
         {selectedTexts.includes("Relajacion y escaneo corporal") && <RelajacionEscaneo />}
-        {selectedTexts.includes("Tonos Binaturales") && <TonosBinaturales />}
+        {selectedTexts.includes("Tonos Binaurales") && <TonosBinaurales />}
         {selectedTexts.includes("Afirmaciones") && <Afirmaciones />}
         {selectedTexts.includes("Meditacion guiada de atencion a la respiracion") && <MeditacionRespiracion />}
         {selectedTexts.includes("Mindfunless") && <Mindfunless />}
