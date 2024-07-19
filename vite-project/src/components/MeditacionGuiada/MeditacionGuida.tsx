@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Checkbox from '@mui/material/Checkbox';
 
 // Importa los componentes de contenido específicos
 import MeditacionesTradicionales from "./MeditacionesTradicionales";
@@ -20,42 +21,38 @@ import Mindfunless from "./Mindfunless";
 import MeditacionDormir from "./MeditacionDormir";
 
 const MeditacionGuiada = () => {
-  const [selectedText, setSelectedText] = useState<string | null>(null);
+  const [selectedTexts, setSelectedTexts] = useState<string[]>([]);
 
-  const handleListItemClick = (text: string) => {
-    setSelectedText(text);
+  const handleCheckboxChange = (text: string) => {
+    setSelectedTexts(prevSelected => 
+      prevSelected.includes(text) 
+        ? prevSelected.filter(item => item !== text) 
+        : [...prevSelected, text]
+    );
   };
 
   const renderSelectedContent = () => {
-    switch (selectedText) {
-      case "Meditaciones Tradicionales":
-        return <MeditacionesTradicionales />;
-      case "Meditacion con visualizaciones":
-        return <MeditacionVisualizaciones />;
-      case "Relajacion y escaneo corporal":
-        return <RelajacionEscaneo />;
-      case "Tonos Binaturales":
-        return <TonosBinaturales />;
-      case "Afirmaciones":
-        return <Afirmaciones />;
-      case "Meditacion guiada de atencion a la respiracion":
-        return <MeditacionRespiracion />;
-      case "Mindfunless":
-        return <Mindfunless />;
-      case "Meditacion para dormir mejor":
-        return <MeditacionDormir />;
-
-      // Agrega más casos para cada elemento de la lista
-      default:
-        return (
+    return (
+      <>
+        {selectedTexts.includes("Meditaciones Tradicionales") && <MeditacionesTradicionales />}
+        {selectedTexts.includes("Meditacion con visualizaciones") && <MeditacionVisualizaciones />}
+        {selectedTexts.includes("Relajacion y escaneo corporal") && <RelajacionEscaneo />}
+        {selectedTexts.includes("Tonos Binaturales") && <TonosBinaturales />}
+        {selectedTexts.includes("Afirmaciones") && <Afirmaciones />}
+        {selectedTexts.includes("Meditacion guiada de atencion a la respiracion") && <MeditacionRespiracion />}
+        {selectedTexts.includes("Mindfunless") && <Mindfunless />}
+        {selectedTexts.includes("Meditacion para dormir mejor") && <MeditacionDormir />}
+        
+        {selectedTexts.length === 0 && (
           <div>
             <Typography variant="h5">Meditacion</Typography>
             <Typography paragraph>
               Aquí va el texto específico para Meditacion.
             </Typography>
           </div>
-        );
-    }
+        )}
+      </>
+    );
   };
 
   return (
@@ -88,13 +85,8 @@ const MeditacionGuiada = () => {
             "Meditacion guiada de atencion a la respiracion",
             "Mindfunless",
             "Meditacion para dormir mejor",
-            // Asegúrate de tener los mismos nombres que en tu lista y en los casos del switch
           ].map((text, index) => (
-            <ListItem
-              key={text}
-              disablePadding
-              onClick={() => handleListItemClick(text)}
-            >
+            <ListItem key={text} disablePadding>
               <ListItemButton
                 sx={{
                   "&:hover": {
@@ -102,6 +94,10 @@ const MeditacionGuiada = () => {
                   },
                 }}
               >
+                <Checkbox
+                  checked={selectedTexts.includes(text)}
+                  onChange={() => handleCheckboxChange(text)}
+                />
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
