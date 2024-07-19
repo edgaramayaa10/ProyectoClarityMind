@@ -14,11 +14,12 @@ import Checkbox from '@mui/material/Checkbox';
 import MeditacionesTradicionales from "./MeditacionesTradicionales";
 import MeditacionVisualizaciones from "./MeditacionVisualizaciones";
 import RelajacionEscaneo from "./RelajacionEscaneo";
-import TonosBinaturales from "./TonosBinaurales";
+import TonosBinaurales from "./TonosBinaurales";
 import Afirmaciones from "./Afirmaciones";
 import MeditacionRespiracion from "./MeditacionRespiracion";
 import Mindfunless from "./Mindfunless";
 import MeditacionDormir from "./MeditacionDormir";
+import Meditacion9Lunas from "./Meditacion9Lunas";
 
 const MeditacionGuiada = () => {
   const [selectedTexts, setSelectedTexts] = useState<string[]>([]);
@@ -32,25 +33,28 @@ const MeditacionGuiada = () => {
   };
 
   const renderSelectedContent = () => {
+    if (selectedTexts.length === 0) {
+      return (
+        <div>
+          <Typography variant="h5">Meditacion</Typography>
+          <Typography paragraph>
+            Aquí va el texto específico para Meditacion.
+          </Typography>
+        </div>
+      );
+    }
+
     return (
       <>
         {selectedTexts.includes("Meditaciones Tradicionales") && <MeditacionesTradicionales />}
         {selectedTexts.includes("Meditacion con visualizaciones") && <MeditacionVisualizaciones />}
         {selectedTexts.includes("Relajacion y escaneo corporal") && <RelajacionEscaneo />}
-        {selectedTexts.includes("Tonos Binaturales") && <TonosBinaturales />}
+        {selectedTexts.includes("Tonos Binaurales") && <TonosBinaurales />}
         {selectedTexts.includes("Afirmaciones") && <Afirmaciones />}
         {selectedTexts.includes("Meditacion guiada de atencion a la respiracion") && <MeditacionRespiracion />}
         {selectedTexts.includes("Mindfunless") && <Mindfunless />}
         {selectedTexts.includes("Meditacion para dormir mejor") && <MeditacionDormir />}
-        
-        {selectedTexts.length === 0 && (
-          <div>
-            <Typography variant="h5">Meditacion</Typography>
-            <Typography paragraph>
-              Aquí va el texto específico para Meditacion.
-            </Typography>
-          </div>
-        )}
+        {selectedTexts.includes("Meditacion 9 lunas") && <Meditacion9Lunas />}
       </>
     );
   };
@@ -85,7 +89,8 @@ const MeditacionGuiada = () => {
             "Meditacion guiada de atencion a la respiracion",
             "Mindfunless",
             "Meditacion para dormir mejor",
-          ].map((text, index) => (
+            "Meditacion 9 lunas",
+          ].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton
                 sx={{
@@ -107,7 +112,7 @@ const MeditacionGuiada = () => {
       <Box
         component="main"
         sx={{
-          flexGrow: 5,
+          flexGrow: 1,
           bgcolor: "background.default",
           p: 3,
           marginLeft: "280px",
