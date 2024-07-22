@@ -11,7 +11,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 
 // Importa los componentes de contenido específicos
-import MeditacionesTradicionales from "./MeditacionesTradicionales";
 import MeditacionVisualizaciones from "./MeditacionVisualizaciones";
 import RelajacionEscaneo from "./RelajacionEscaneo";
 import TonosBinaurales from "./TonosBinaurales";
@@ -19,7 +18,6 @@ import Afirmaciones from "./Afirmaciones";
 import MeditacionRespiracion from "./MeditacionRespiracion";
 import Mindfunless from "./Mindfunless";
 import MeditacionDormir from "./MeditacionDormir";
-import Meditacion9Lunas from "./Meditacion9Lunas";
 
 const MeditacionGuiada = () => {
   const [selectedTexts, setSelectedTexts] = useState<string[]>([]);
@@ -46,7 +44,6 @@ const MeditacionGuiada = () => {
 
     return (
       <>
-        {selectedTexts.includes("Meditaciones Tradicionales") && <MeditacionesTradicionales />}
         {selectedTexts.includes("Meditacion con visualizaciones") && <MeditacionVisualizaciones />}
         {selectedTexts.includes("Relajacion y escaneo corporal") && <RelajacionEscaneo />}
         {selectedTexts.includes("Tonos Binaurales") && <TonosBinaurales />}
@@ -54,7 +51,6 @@ const MeditacionGuiada = () => {
         {selectedTexts.includes("Meditacion guiada de atencion a la respiracion") && <MeditacionRespiracion />}
         {selectedTexts.includes("Mindfunless") && <Mindfunless />}
         {selectedTexts.includes("Meditacion para dormir mejor") && <MeditacionDormir />}
-        {selectedTexts.includes("Meditacion 9 lunas") && <Meditacion9Lunas />}
       </>
     );
   };
