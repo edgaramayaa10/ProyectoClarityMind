@@ -77,7 +77,6 @@ const MeditacionGuiada = () => {
       >
         <List sx={{ paddingTop: 0, paddingBottom: 0 }}>
           {[
-            "Meditaciones Tradicionales",
             "Meditacion con visualizaciones",
             "Relajacion y escaneo corporal",
             "Tonos Binaurales",
@@ -85,7 +84,6 @@ const MeditacionGuiada = () => {
             "Meditacion guiada de atencion a la respiracion",
             "Mindfunless",
             "Meditacion para dormir mejor",
-            "Meditacion 9 lunas",
           ].map((text) => (
             <ListItem key={text} disablePadding>
               <ListItemButton
