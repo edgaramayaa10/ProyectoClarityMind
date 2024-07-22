@@ -9,10 +9,11 @@ const tarjetas = [
 
 const MeditacionDormir = () => {
   return (
-    <Box sx={{ flexGrow: 1, padding: 2 }}>
-      <Grid container spacing={3}>
+    <Box sx={{ flexGrow: 1, padding: 2, marginTop: '100px' }}>
+      {/* Utiliza Grid para organizar las tarjetas en una columna */}
+      <Grid container spacing={3} direction="column">
         {tarjetas.map((tarjeta, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
+          <Grid item key={index}>
             <Card>
               <CardContent>
                 <Typography variant="h5" component="div">
