@@ -33,7 +33,7 @@ const MeditacionVisualizaciones = () => {
       <Grid container spacing={3} direction="column">
         {tarjetas.map((tarjeta, index) => (
           <Grid item key={index}>
-            <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', border: '2px solid #DAA97D', borderRadius: '8px', overflow: 'hidden' }}>
               {/* Imagen a la izquierda */}
               <Box 
                 sx={{ 

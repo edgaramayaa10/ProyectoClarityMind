@@ -11,6 +11,7 @@ const tarjetas = [
     titulo: 'Meditación de afirmaciones para buena autoestima' ,
     audio: Autoestima,
     imagen: muestra // URL de ejemplo
+    
   },
   {
     titulo: 'Meditación afirmaciones para reducir estres',
@@ -34,7 +35,7 @@ const Afirmaciones = () => {
       <Grid container spacing={3} direction="column">
         {tarjetas.map((tarjeta, index) => (
           <Grid item key={index}>
-            <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', border: '2px solid #045346', borderRadius: '8px', overflow: 'hidden' }}>
               {/* Imagen a la izquierda */}
               <Box 
                 sx={{ 
@@ -43,6 +44,7 @@ const Afirmaciones = () => {
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',
+                  
                 }} 
               />
               {/* Contenido de la tarjeta */}

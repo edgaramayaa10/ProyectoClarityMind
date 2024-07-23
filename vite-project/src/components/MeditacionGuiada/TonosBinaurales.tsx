@@ -50,7 +50,7 @@ const TonosBinaurales = () => {
       <Grid container spacing={4} direction="column">
         {tarjetas.map((tarjeta, index) => (
           <Grid item key={index}>
-            <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden', minHeight: '200px' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', border: '2px solid #FBF5E8', borderRadius: '8px', overflow: 'hidden', minHeight: '200px' }}>
               {/* Imagen a la izquierda */}
               <Box 
                 sx={{ 
