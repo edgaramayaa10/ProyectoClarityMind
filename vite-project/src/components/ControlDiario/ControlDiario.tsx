@@ -7,11 +7,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
+// Crear el tema con los estilos personalizados
 const theme = createTheme({
     components: {
         MuiTextField: {
             styleOverrides: {
                 root: {
+                    // Personalización para `MuiTextField`
                     '& .MuiOutlinedInput-root': {
                         '&.Mui-focused fieldset': {
                             borderColor: '#045346',
@@ -21,6 +24,45 @@ const theme = createTheme({
                         '&.Mui-focused': {
                             color: '#045346',
                         },
+                    },
+                    '& .MuiSelect-root': {
+                        backgroundColor: '#d0f0c0', // Color de fondo del campo desplegable
+                        color: '#333', // Color del texto del campo desplegable
+                    },
+                    marginTop: 0, // Agregar margen cero
+                    marginBottom: 0,
+                },
+            },
+        },
+        MuiMenuItem: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#d0f0c0', // Color de fondo de las opciones del desplegable
+                    color: '#333', // Color del texto de las opciones
+                    '&:hover': {
+                        backgroundColor: '#c0e8b2', // Color de fondo cuando se pasa el cursor sobre una opción
+                    },
+                    marginTop: 0, // Agregar margen cero
+                    marginBottom: 0,
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    bgcolor: '#543310', // Color de fondo del botón
+                    marginTop: 0, // Agregar margen cero
+                    marginBottom: 0,
+                },
+            },
+        },
+        MuiList: {
+            styleOverrides: {
+                root: {
+                    // Aplicar padding 0 a la lista en el menú desplegable
+                    '& .css-6hp17o-MuiList-root-MuiMenu-list': {
+                        paddingTop: 0,
+                        paddingBottom: 0,
                     },
                 },
             },
@@ -78,7 +120,7 @@ export function ControlDiario() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Box sx={{ bgcolor: '#FBF5E8', height: 'auto', p: 4, mt: 10, width: '100%', paddingTop: 8, textAlign: 'center' }}>
+            <Box sx={{ bgcolor: '#FBF5E8', height: 'auto', p: 4, mt: 10, width: '100%', textAlign: 'center', color: '#045346' }}>
                 <Typography variant="h4" gutterBottom>
                     Formulario de Control Diario de Meditación
                 </Typography>
@@ -447,7 +489,7 @@ export function ControlDiario() {
                             ))}
                         </TextField>
                     </Box>
-                    <Button variant="contained" sx={{ bgcolor: '#543310' }} type="submit">
+                    <Button variant="contained" color="primary" type="submit">
                         Enviar
                     </Button>
                 </form>
