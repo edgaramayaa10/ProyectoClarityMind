@@ -13,7 +13,7 @@ function App() {
     <Routes>
     <Route path="/" element={<HomePage />} />
 
-     <Route path="/activar/:token" element={<ActivarCuenta />} />
+      <Route path="/activar/:token" element={<ActivarCuenta />} />
       <Route path="/login" element={<CardLogIn />} />
       <Route path="/login/Registrate" element={<CardRegistroP />}/>
       <Route path="/meditacion" element={<MeditacionGuiada />}/>

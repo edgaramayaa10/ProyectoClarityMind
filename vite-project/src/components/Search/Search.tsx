@@ -1,6 +1,9 @@
+// SearchInput.tsx
+import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import IconButton from '@mui/material/IconButton';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -44,7 +47,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function SearchInput() {
+interface SearchInputProps {
+    onSearch: (query: string) => void;
+}
+
+export default function SearchInput({ onSearch }: SearchInputProps) {
+    const [query, setQuery] = React.useState<string>('');
+
+    const handleSearch = () => {
+        if (query.trim()) {
+            onSearch(query);
+            setQuery(''); // Clear the input after search
+        }
+    };
+
+    const handleKeyPress = (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <Search>
             <SearchIconWrapper>
@@ -53,7 +75,16 @@ export default function SearchInput() {
             <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyPress={handleKeyPress}
             />
+            <IconButton
+                onClick={handleSearch}
+                sx={{ position: 'absolute', right: 0, height: '100%', color: 'black' }}
+            >
+                <SearchIcon />
+            </IconButton>
         </Search>
     );
 }

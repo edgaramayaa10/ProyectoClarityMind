@@ -1,4 +1,6 @@
+// NavBarComponent.tsx
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,7 +15,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
 import { Link } from 'react-router-dom';
-import Search from './Search/Search'
+import SearchInput from './Search/Search';
 
 const pages = ['Meditacion Guiada'];
 const pages1 = ['Control diario'];
@@ -22,10 +24,12 @@ const settings = ['Profile', 'Account', 'Logout'];
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const navigate = useNavigate(); // Usar useNavigate para redirección
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -38,13 +42,19 @@ function NavBarComponent() {
     setAnchorElUser(null);
   };
 
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      // Redirigir a la página de resultados de búsqueda con la consulta
+      navigate(`/search?query=${encodeURIComponent(query)}`);
+    }
+  };
+
   return (
     <AppBar position="fixed" sx={{width:'100%', background: 'white', color: '#D49F11', height: '100px', borderBottom:'1px solid gray' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-          <Link to= "/">
-          <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }}
-          />
+          <Link to="/">
+            <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }} />
           </Link>
           <Typography
             variant="h6"
@@ -100,6 +110,7 @@ function NavBarComponent() {
               ))}
             </Menu>
           </Box>
+
           <Typography
             variant="h6"
             noWrap
@@ -118,40 +129,40 @@ function NavBarComponent() {
           >
             CLARITYMIND
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft:'100px' }}>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft: '100px' }}>
             <Link to="/meditacion">
-            {pages.map((page) => (
-              
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
-              >
-                {page}
-              </Button>
-            ))}
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
+                >
+                  {page}
+                </Button>
+              ))}
             </Link>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft:'100px' }}>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft: '100px' }}>
             <Link to="/control">
-            {pages1.map((page1) => (
-              
-              <Button
-                key={page1}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
-              >
-                {page1}
-              </Button>
-            ))}
+              {pages1.map((page1) => (
+                <Button
+                  key={page1}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
+                >
+                  {page1}
+                </Button>
+              ))}
             </Link>
           </Box>
 
           <Box sx={{ flexGrow: 3, display: 'flex', justifyContent: 'center' }}>
-            <Search />
+            <SearchInput onSearch={handleSearch} />
           </Box>
 
-          <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight:'20px'}}>
+          <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
             <Button color='inherit'><Link to="/login">Login</Link></Button>
           </Box>
 
@@ -182,15 +193,13 @@ function NavBarComponent() {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
-              
             </Menu>
           </Box>
-              
+
         </Toolbar>
       </Container>
     </AppBar>
   );
-
 }
 
 export default NavBarComponent;
