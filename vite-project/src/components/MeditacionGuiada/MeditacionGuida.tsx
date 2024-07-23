@@ -30,29 +30,27 @@ const MeditacionGuiada = () => {
     );
   };
 
-  const renderSelectedContent = () => {
-    if (selectedTexts.length === 0) {
-      return (
-        <div>
-          <Typography variant="h5">Meditacion</Typography>
-          <Typography paragraph>
-            Aquí va el texto específico para Meditacion.
-          </Typography>
-        </div>
-      );
-    }
+  const renderContent = () => {
+    const components = [
+      { text: "Meditacion con visualizaciones", component: <MeditacionVisualizaciones /> },
+      { text: "Relajacion y escaneo corporal", component: <RelajacionEscaneo /> },
+      { text: "Tonos Binaurales", component: <TonosBinaurales /> },
+      { text: "Afirmaciones", component: <Afirmaciones /> },
+      { text: "Meditacion guiada de atencion a la respiracion", component: <MeditacionRespiracion /> },
+      { text: "Mindfunless", component: <Mindfunless /> },
+      { text: "Meditacion para dormir mejor", component: <MeditacionDormir /> }
+    ];
 
-    return (
-      <>
-        {selectedTexts.includes("Meditacion con visualizaciones") && <MeditacionVisualizaciones />}
-        {selectedTexts.includes("Relajacion y escaneo corporal") && <RelajacionEscaneo />}
-        {selectedTexts.includes("Tonos Binaurales") && <TonosBinaurales />}
-        {selectedTexts.includes("Afirmaciones") && <Afirmaciones />}
-        {selectedTexts.includes("Meditacion guiada de atencion a la respiracion") && <MeditacionRespiracion />}
-        {selectedTexts.includes("Mindfunless") && <Mindfunless />}
-        {selectedTexts.includes("Meditacion para dormir mejor") && <MeditacionDormir />}
-      </>
-    );
+    // Filtra y renderiza los componentes seleccionados
+    const selectedComponents = selectedTexts.length > 0 
+      ? components.filter(comp => selectedTexts.includes(comp.text)) 
+      : components;
+
+    return selectedComponents.map((comp, index) => (
+      <Box key={index} mb={2}>
+        {comp.component}
+      </Box>
+    ));
   };
 
   return (
@@ -112,8 +110,8 @@ const MeditacionGuiada = () => {
           marginLeft: "280px",
         }}
       >
-        {/* Mostrar el texto seleccionado */}
-        {renderSelectedContent()}
+        {/* Mostrar el contenido filtrado */}
+        {renderContent()}
       </Box>
     </Box>
   );
