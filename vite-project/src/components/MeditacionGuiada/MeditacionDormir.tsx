@@ -1,15 +1,78 @@
-// MeditacionesTradicionales.tsx
-import Typography from '@mui/material/Typography';
+import { Box, Typography, Grid } from '@mui/material';
+import muestra from '../IMG/5.png';
+import ReactPlayer from 'react-player';
+import profundo from '../Audio/Meditación Guiada para Dormir y Descansar Profundamente 🌙_ MEDITACIÓN CORTA PARA RUTINA DE NOCHE.mp3'
+import estres from '../Audio/Meditación para DORMIR ✨ Libera Estrés - 10 minutos MINDFULNESS.mp3'
+import rapido from '../Audio/Meditación Guiada para DORMIR en 5 MINUTOS... ¡Muy Útil! (1).mp3'
+import reparador from '../Audio/Meditación guiada para dormir _ Sueño profundo y reparador en solo unos minutos.mp3'
 
-const MeditacionDormir = () => {
+const tarjetas = [
+  {
+    titulo: 'Meditación para dormir y descansar' ,
+    audio: profundo,
+    imagen: muestra // URL de ejemplo
+  },
+  {
+    titulo: 'Meditación para dormir y liberar estres',
+    audio: estres,
+    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+  },
+  {
+    titulo: 'Meditación para dormirte rapido',
+    audio: rapido, 
+  },
+  {
+    titulo: 'Meditación para un sueño reparador ',
+    audio: reparador,
+    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+  },
+];
+
+const DormirMejor = () => {
   return (
-    <div>
-      <Typography variant="h5">Meditcion para dormir mejor</Typography>
-      <Typography paragraph>
-        Son de las mas recurridas, sobre todo por el hecho de vivir en una sociedad en la que los horario snos impiden tener unos adecuados hábitos de sueño. <br /> Ofrece una serie de instrucciones que ayudan a alcanzar el sueño de una forma natural y no forzada.
-      </Typography>
-    </div>
+    <Box sx={{ flexGrow: 1, padding: 2, marginTop: '100px' }}>
+      <Grid container spacing={3} direction="column">
+        {tarjetas.map((tarjeta, index) => (
+          <Grid item key={index}>
+            <Box sx={{ display: 'flex', alignItems: 'center', border: '2px solid #DAA97D', borderRadius: '8px', overflow: 'hidden' }}>
+              {/* Imagen a la izquierda */}
+              <Box 
+                sx={{ 
+                  width: 150, // Ancho de la imagen
+                  height: 150, // Altura fija
+                  backgroundImage: `url(${tarjeta.imagen})`,
+                  backgroundSize: 'cover', // Asegura que la imagen cubra el área
+                  backgroundPosition: 'center',
+                }} 
+              />
+              {/* Contenido de la tarjeta */}
+              <Box sx={{ flex: 1, padding: 2 }}>
+                <Typography variant="h5" component="div">
+                  {tarjeta.titulo}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  
+                </Typography>
+                {ReactPlayer.canPlay(tarjeta.audio) ? (
+                  <ReactPlayer url={tarjeta.audio} controls width="100%" height="50px" />
+                ) : (
+                  <audio controls>
+                    <source src={tarjeta.audio} type="audio/mpeg" />
+                    Tu navegador no soporta el elemento de audio.
+                  </audio>
+                )}
+              </Box>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 
-export default MeditacionDormir;
+export default DormirMejor;
+
+
+
+
+

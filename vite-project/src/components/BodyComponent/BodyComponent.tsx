@@ -9,7 +9,7 @@ const BodyComponent = () => {
     return (
         <React.Fragment>
             <CssBaseline />
-            <Box sx={{ bgcolor: '#FBF5E8', height: '150vh', marginTop: '-5px', padding: '16px' }}>
+            <Box sx={{ bgcolor: '#FBF5E8', height: '100vh', marginTop: '-5px', padding: '16px' }}>
                 <Typography variant="h4" component="h6" gutterBottom sx={{ color:'#D49F11', fontSize: '20px', textAlign: 'center', fontFamily: 'monospace', marginBottom: '20px' }}>
                     NUESTRA MISIÓN 
                 </Typography>
@@ -58,7 +58,7 @@ const BodyComponent = () => {
                                 MANTENER LA MISMA MEDITACIÓN
                             </Typography>
                             <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '14px' }}>
-                                Intenta mantener la misma meditación por lo menos una semana, si se da el caso que no te gusta, busca la que sí lo haga, y mantenla unas 3 semanas.
+                                Intenta mantener la misma meditación por lo menos una semana, si se da el caso que no te gusta, busca la que sí lo haga, y mantenla 21 días.
                             </Typography>
                         </Paper>
                     </Grid>

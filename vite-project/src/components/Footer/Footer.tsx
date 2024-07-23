@@ -20,7 +20,8 @@ const Footer = () => {
                 py: 3,
                 px: 2,
                 mt: 'auto',
-                backgroundColor: '#658147',
+                backgroundColor: '#A9B388',
+                color: '#5F6F52',
                 bottom: 0,
                 width: '100%',
             }}
@@ -28,53 +29,53 @@ const Footer = () => {
             <Container maxWidth="lg">
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Typography variant="h6" color="text.primary" gutterBottom>
+                        <Typography variant="h6" color="inherit" gutterBottom sx={{ color: '#1A5319' }}>
                             Meditación Guiada
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="inherit" sx={{ color: '#1A5319' }}>
                             Encuentra paz y bienestar con nuestras meditaciones guiadas.
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Typography variant="h6" color="text.primary" gutterBottom>
+                        <Typography variant="h6" color="inherit" gutterBottom sx={{ color: '#1A5319' }}>
                             Enlaces
                         </Typography>
-                        <Link href="#" variant="body2" color="text.secondary" display="block">
+                        <Link href="#" variant="body2" display="block" sx={{ color: '#1A5319' }}>
                             Política de Privacidad
                         </Link>
-                        <Link href="#" variant="body2" color="text.secondary" display="block">
+                        <Link href="#" variant="body2" display="block" sx={{ color: '#1A5319' }}>
                             Términos de Servicio
                         </Link>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Typography variant="h6" color="text.primary" gutterBottom>
+                        <Typography variant="h6" color="inherit" gutterBottom sx={{ color: '#1A5319' }}>
                             Contacto
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="inherit" sx={{ color: '#1A5319' }}>
                             Email: claritymind.mind@gmail.com
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="inherit" sx={{ color: '#1A5319' }}>
                             Teléfono: +34 123 456 789
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Typography variant="h6" color="text.primary" gutterBottom>
+                        <Typography variant="h6" color="inherit" gutterBottom sx={{ color: '#1A5319' }}>
                             Síguenos
                         </Typography>
                         <IconButton color="inherit" href="https://facebook.com">
-                            <FacebookIcon />
+                            <FacebookIcon sx={{ color: '#1A5319' }} />
                         </IconButton>
                         <IconButton color="inherit" href="https://twitter.com">
-                            <TwitterIcon />
+                            <TwitterIcon sx={{ color: '#1A5319' }} />
                         </IconButton>
                         <IconButton color="inherit" href="https://instagram.com">
-                            <InstagramIcon />
+                            <InstagramIcon sx={{ color: '#1A5319' }} />
                         </IconButton>
                     </Grid>
                 </Grid>
                 <Grid container spacing={4} sx={{ mt: 4 }}>
                     <Grid item xs={12}>
-                        <Typography variant="h6" color="text.primary" gutterBottom>
+                        <Typography variant="h6" color="inherit" gutterBottom sx={{ color: '#1A5319' }}>
                             Valoración
                         </Typography>
                         <Rating
@@ -87,9 +88,9 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Box mt={5}>
-                    <Typography variant="body2" color="text.secondary" align="center">
+                    <Typography variant="body2" color="inherit" align="center" sx={{ color: '#1A5319' }}>
                         {'© '}
-                        <Link color="inherit" href="https://meditacion.com/">
+                        <Link color="inherit" href="https://meditacion.com/" sx={{ color: '#1A5319' }}>
                             ClarityMind
                         </Link>{' '}
                         {new Date().getFullYear()}
