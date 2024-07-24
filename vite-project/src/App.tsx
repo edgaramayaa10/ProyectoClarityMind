@@ -9,7 +9,7 @@ import HomePage from './components/HomePage/HomePage';
 import ActivarCuenta from './components/CardRegistro/ActivarCuenta';
 import Profile from './components/Profile/Profile'
 function App() {
-  return <>
+  return <>2
   <NavBarComponent />
     <Routes>
     <Route path="/" element={<HomePage />} />
