@@ -12,17 +12,22 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
 import { Link } from 'react-router-dom';
 import SearchInput from './Search/Search';
 
 const pages = ['Meditacion Guiada'];
 const pages1 = ['Control diario'];
-const settings = ['Profile', 'Account', 'Logout'];
+const settings = ['Perfil', 'Cerrar sesion'];
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // Estado para el diálogo de cierre de sesión
   const navigate = useNavigate(); // Usar useNavigate para redirección
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -51,19 +56,29 @@ function NavBarComponent() {
   const handleMenuItemClick = (setting: string) => {
     handleCloseUserMenu(); // Cierra el menú
     switch (setting) {
-      case 'Profile':
-        navigate('/profile');
+      case 'Perfil':
+        navigate('/Perfil');
         break;
-      case 'Account':
-        navigate('/account');
-        break;
-      case 'Logout':
-        // Aquí deberías manejar la lógica de cierre de sesión
-        navigate('/login');
+      case 'Cerrar sesion':
+        handleOpenLogoutDialog(); // Mostrar el diálogo de confirmación
         break;
       default:
         break;
     }
+  };
+
+  const handleOpenLogoutDialog = () => {
+    setOpenLogoutDialog(true);
+  };
+
+  const handleCloseLogoutDialog = () => {
+    setOpenLogoutDialog(false);
+  };
+
+  const handleConfirmLogout = () => {
+    // Aquí deberías manejar la lógica de cierre de sesión
+    handleCloseLogoutDialog();
+    navigate('/login'); // Redirige al login después de cerrar sesión
   };
 
   return (
@@ -212,9 +227,23 @@ function NavBarComponent() {
               ))}
             </Menu>
           </Box>
-
         </Toolbar>
       </Container>
+
+      {/* Diálogo de Confirmación de Cierre de Sesión */}
+      <Dialog
+        open={openLogoutDialog}
+        onClose={handleCloseLogoutDialog}
+      >
+        <DialogTitle>Confirmación</DialogTitle>
+        <DialogContent>
+          <Typography>¿Estás seguro que quieres cerrar sesión?</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseLogoutDialog}>No</Button>
+          <Button onClick={handleConfirmLogout} color="primary">Sí</Button>
+        </DialogActions>
+      </Dialog>
     </AppBar>
   );
 }

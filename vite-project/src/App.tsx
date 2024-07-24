@@ -18,7 +18,7 @@ function App() {
       <Route path="/login/Registrate" element={<CardRegistroP />}/>
       <Route path="/meditacion" element={<MeditacionGuiada />}/>
       <Route path="/control" element={<ControlDiario />}/>
-      <Route path="/profile" element={<Profile />}/>
+      <Route path="/Perfil" element={<Profile />}/>
       </Routes>
   </>;
 }
