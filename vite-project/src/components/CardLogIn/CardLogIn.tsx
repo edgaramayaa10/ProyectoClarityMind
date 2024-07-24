@@ -23,6 +23,7 @@ const CardLogIn: React.FC = () => {
 
             if (response.ok) {
                 console.log('Inicio de sesión exitoso');
+                localStorage.setItem('isAuthenticated', 'true'); // Marca al usuario como autenticado
                 navigate('/'); // Redirige a la página principal
             } else {
                 throw new Error('Credenciales incorrectas o error en el servidor');
@@ -35,7 +36,6 @@ const CardLogIn: React.FC = () => {
     };
 
     return (
-
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 mt-24">
             <div className="mx-auto max-w-lg text-center">
                 <h1 className="text-2xl font-bold sm:text-3xl">Bienvenido a ClarityMind!</h1>

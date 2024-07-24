@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,7 +17,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
-import { Link } from 'react-router-dom';
 import SearchInput from './Search/Search';
 
 const pages = ['Meditacion Guiada'];
@@ -27,8 +26,8 @@ const settings = ['Perfil', 'Cerrar sesion'];
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); 
-  const navigate = useNavigate(); 
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // Estado para el diálogo de cierre de sesión
+  const navigate = useNavigate(); // Usar useNavigate para redirección
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -75,9 +74,9 @@ function NavBarComponent() {
   };
 
   const handleConfirmLogout = () => {
-    
+    // Aquí deberías manejar la lógica de cierre de sesión
     handleCloseLogoutDialog();
-    navigate('/login'); 
+    navigate('/login'); // Redirige al login después de cerrar sesión
   };
 
   return (
@@ -193,9 +192,11 @@ function NavBarComponent() {
             <SearchInput onSearch={handleSearch} />
           </Box>
 
-          <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
-            <Button color='inherit'><Link to="/login">Login</Link></Button>
-          </Box>
+          {showLogin && (
+            <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
+              <Button color='inherit'><Link to="/login">Login</Link></Button>
+            </Box>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
