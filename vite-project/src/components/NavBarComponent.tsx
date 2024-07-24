@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -27,8 +27,8 @@ const settings = ['Perfil', 'Cerrar sesion'];
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // Estado para el diálogo de cierre de sesión
-  const navigate = useNavigate(); // Usar useNavigate para redirección
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); 
+  const navigate = useNavigate(); 
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -48,19 +48,18 @@ function NavBarComponent() {
 
   const handleSearch = (query: string) => {
     if (query.trim()) {
-      // Redirigir a la página de resultados de búsqueda con la consulta
       navigate(`/search?query=${encodeURIComponent(query)}`);
     }
   };
 
   const handleMenuItemClick = (setting: string) => {
-    handleCloseUserMenu(); // Cierra el menú
+    handleCloseUserMenu(); 
     switch (setting) {
       case 'Perfil':
         navigate('/Perfil');
         break;
       case 'Cerrar sesion':
-        handleOpenLogoutDialog(); // Mostrar el diálogo de confirmación
+        handleOpenLogoutDialog(); 
         break;
       default:
         break;
@@ -76,9 +75,9 @@ function NavBarComponent() {
   };
 
   const handleConfirmLogout = () => {
-    // Aquí deberías manejar la lógica de cierre de sesión
+    
     handleCloseLogoutDialog();
-    navigate('/login'); // Redirige al login después de cerrar sesión
+    navigate('/login'); 
   };
 
   return (
@@ -230,7 +229,7 @@ function NavBarComponent() {
         </Toolbar>
       </Container>
 
-      {/* Diálogo de Confirmación de Cierre de Sesión */}
+      
       <Dialog
         open={openLogoutDialog}
         onClose={handleCloseLogoutDialog}
