@@ -1,4 +1,3 @@
-// NavBarComponent.tsx
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import AppBar from '@mui/material/AppBar';
@@ -49,8 +48,26 @@ function NavBarComponent() {
     }
   };
 
+  const handleMenuItemClick = (setting: string) => {
+    handleCloseUserMenu(); // Cierra el menú
+    switch (setting) {
+      case 'Profile':
+        navigate('/profile');
+        break;
+      case 'Account':
+        navigate('/account');
+        break;
+      case 'Logout':
+        // Aquí deberías manejar la lógica de cierre de sesión
+        navigate('/login');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <AppBar position="fixed" sx={{width:'100%', background: 'white', color: '#D49F11', height: '100px', borderBottom:'1px solid gray' }}>
+    <AppBar position="fixed" sx={{ width: '100%', background: 'white', color: '#D49F11', height: '100px', borderBottom: '1px solid gray' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
           <Link to="/">
@@ -189,7 +206,7 @@ function NavBarComponent() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
