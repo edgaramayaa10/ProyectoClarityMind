@@ -4,11 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import SaveIcon from '@mui/icons-material/Save'; // Importa el ícono de guardar
-import CancelIcon from '@mui/icons-material/Cancel'; // Importa el ícono de cancelar
+import SaveIcon from '@mui/icons-material/Save';
+import CancelIcon from '@mui/icons-material/Cancel';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import { Input } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Input from '@mui/material/Input';
 
 const Profile = () => {
     // Estado para manejar la edición y los datos del perfil
@@ -16,9 +16,9 @@ const Profile = () => {
     const [profileData, setProfileData] = React.useState({
         Foto: '',
         Nombre: 'John',
-        Apellido: 'Frusciante',
+        Apellidos: 'Frusciante',
         Email: 'john@example.com',
-        Fecha: '1970-03-14',
+        FechaNacimiento: '1970-03-14',
     });
     const [editableData, setEditableData] = React.useState(profileData);
 
@@ -51,7 +51,7 @@ const Profile = () => {
             reader.onloadend = () => {
                 setEditableData({
                     ...editableData,
-                    profilePicture: reader.result as string
+                    Foto: reader.result as string // Corregido a 'Foto'
                 });
             };
             reader.readAsDataURL(file);
@@ -65,13 +65,12 @@ const Profile = () => {
                     <div className="flex flex-col items-center">
                         <Avatar
                             alt="Profile Picture"
-                            src={editableData.profilePicture || '/static/images/avatar/1.jpg'}
+                            src={editableData.Foto || '/static/images/avatar/1.jpg'}
                             sx={{ width: 100, height: 100 }}
                         />
                         {isEditing && (
                             <Input
                                 type="file"
-                                accept="image/*"
                                 onChange={handleFileChange}
                                 sx={{ mt: 2 }}
                             />
@@ -79,23 +78,24 @@ const Profile = () => {
                     </div>
                     <dl className="divide-y divide-gray-200 mt-4">
                         {Object.keys(profileData).map((key) => (
-                            key !== 'profilePicture' && (
+                            key !== 'Foto' && (
                                 <div key={key} className="flex items-center justify-between py-3">
                                     <div className="flex-1">
                                         <Typography variant="subtitle1" color="textPrimary" gutterBottom>
                                             {key.charAt(0).toUpperCase() + key.slice(1)}
                                         </Typography>
                                         {isEditing ? (
-                                            <input
-                                                type={key === 'dob' ? 'date' : 'text'}
+                                            <TextField
+                                                type={key === 'FechaNacimiento' ? 'date' : 'text'}
                                                 name={key}
                                                 value={editableData[key as keyof typeof editableData]}
                                                 onChange={handleChange}
-                                                className="border border-gray-300 p-1 rounded w-full"
+                                                className="w-full"
+                                                InputLabelProps={key === 'FechaNacimiento' ? { shrink: true } : {}}
                                             />
                                         ) : (
                                             <Typography variant="body2" color="textSecondary">
-                                                {editableData[key as keyof typeof editableData]}
+                                                {key === 'FechaNacimiento' ? new Date(editableData[key as keyof typeof editableData]).toLocaleDateString() : editableData[key as keyof typeof editableData]}
                                             </Typography>
                                         )}
                                     </div>
