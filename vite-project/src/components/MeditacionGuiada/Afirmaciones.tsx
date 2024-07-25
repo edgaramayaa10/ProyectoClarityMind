@@ -1,29 +1,28 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Chip } from '@mui/material';
 import muestra from '../IMG/5.png';
 import ReactPlayer from 'react-player';
-import Autoestima from '../Audio/Inicia tu día con AFIRMACIONES para Autoestima y Seguridad en ti 💛 - 5 minutos.mp3'
-import ReducionEstres from '../Audio/Meditación Guiada Afirmaciones para Reducir Estrés y Encontrar Paz 🧘_♀️✨.mp3'
-import Dormir from '../Audio/💤 Haz Esto 5 Minutos Antes de Dormir _ Afirmaciones Positivas _ Meditación de Wayne Dyer.mp3'
-import Chakras from '../Audio/❤️Meditación CORTA para ACTIVAR los 7 CHAKRAS ✨ con Afirmaciones Poderosas_ Meditacion Express.mp3'
+import Autoestima from '../Audio/Inicia tu día con AFIRMACIONES para Autoestima y Seguridad en ti 💛 - 5 minutos.mp3';
+import ReducionEstres from '../Audio/Meditación Guiada Afirmaciones para Reducir Estrés y Encontrar Paz 🧘_♀️✨.mp3';
+import Dormir from '../Audio/💤 Haz Esto 5 Minutos Antes de Dormir _ Afirmaciones Positivas _ Meditación de Wayne Dyer.mp3';
+import Chakras from '../Audio/❤️Meditación CORTA para ACTIVAR los 7 CHAKRAS ✨ con Afirmaciones Poderosas_ Meditacion Express.mp3';
 
 const tarjetas = [
   {
-    titulo: 'Meditación de afirmaciones para buena autoestima' ,
+    titulo: 'Meditación de afirmaciones para buena autoestima',
     audio: Autoestima,
     imagen: muestra // URL de ejemplo
-    
   },
   {
-    titulo: 'Meditación afirmaciones para reducir estres',
+    titulo: 'Meditación afirmaciones para reducir estrés',
     audio: ReducionEstres,
     imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
   },
   {
     titulo: 'Meditación afirmaciones antes de dormir',
-    audio: Dormir, 
+    audio: Dormir,
   },
   {
-    titulo: 'Meditación activa los 7 chakras ',
+    titulo: 'Meditación activa los 7 chakras',
     audio: Chakras,
     imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
   },
@@ -35,17 +34,16 @@ const Afirmaciones = () => {
       <Grid container spacing={3} direction="column">
         {tarjetas.map((tarjeta, index) => (
           <Grid item key={index}>
-            <Box sx={{ display: 'flex', alignItems: 'center', border: '2px solid #045346', borderRadius: '8px', overflow: 'hidden' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
               {/* Imagen a la izquierda */}
-              <Box 
-                sx={{ 
+              <Box
+                sx={{
                   width: 150, // Ancho de la imagen
                   height: 150, // Altura fija
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',
-                  
-                }} 
+                }}
               />
               {/* Contenido de la tarjeta */}
               <Box sx={{ flex: 1, padding: 2 }}>
@@ -53,7 +51,7 @@ const Afirmaciones = () => {
                   {tarjeta.titulo}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  
+                  {/* Texto adicional si es necesario */}
                 </Typography>
                 {ReactPlayer.canPlay(tarjeta.audio) ? (
                   <ReactPlayer url={tarjeta.audio} controls width="100%" height="50px" />
@@ -63,6 +61,9 @@ const Afirmaciones = () => {
                     Tu navegador no soporta el elemento de audio.
                   </audio>
                 )}
+                <Box sx={{ marginTop: 2 }}>
+                  <Chip label={tarjeta.titulo} />
+                </Box>
               </Box>
             </Box>
           </Grid>
@@ -73,5 +74,3 @@ const Afirmaciones = () => {
 };
 
 export default Afirmaciones;
-
-

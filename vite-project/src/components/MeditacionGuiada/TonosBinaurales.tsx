@@ -1,4 +1,4 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Chip } from '@mui/material';
 import picDelta from './IMG/delta.png';
 import picTheta from './IMG/theta.png';
 import picAlpha from './IMG/alpha.png';
@@ -50,12 +50,12 @@ const TonosBinaurales = () => {
       <Grid container spacing={4} direction="column">
         {tarjetas.map((tarjeta, index) => (
           <Grid item key={index}>
-            <Box sx={{ display: 'flex', alignItems: 'center', border: '2px solid #FBF5E8', borderRadius: '8px', overflow: 'hidden', minHeight: '200px' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden', minHeight: '200px' }}>
               {/* Imagen a la izquierda */}
               <Box 
                 sx={{ 
-                  width: 200, // Ancho de la imagen
-                  height: 200, // Altura fija aumentada
+                  width: 150, // Ancho de la imagen
+                  height:150, // Altura fija aumentada
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',
@@ -77,6 +77,10 @@ const TonosBinaurales = () => {
                     Tu navegador no soporta el elemento de audio.
                   </audio>
                 )}
+                {/* Chip al final del contenido */}
+                <Box sx={{ marginTop: 2 }}>
+                  <Chip label={tarjeta.titulo} />
+                </Box>
               </Box>
             </Box>
           </Grid>
