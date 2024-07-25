@@ -1,4 +1,4 @@
-// SearchInput.tsx
+// src/components/SearchInput.tsx
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -8,10 +8,10 @@ import IconButton from '@mui/material/IconButton';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#FBF7F0', // Cambiar a color vino
-    color: 'black', // Cambiar a color rojo clarito
+    backgroundColor: '#FBF7F0',
+    color: 'black',
     '&:hover': {
-        backgroundColor: alpha('#FBF7F0', 0.75), // Ajustar la opacidad en hover si es necesario
+        backgroundColor: alpha('#FBF7F0', 0.75),
     },
     marginLeft: 0,
     width: '100%',
@@ -57,7 +57,6 @@ export default function SearchInput({ onSearch }: SearchInputProps) {
     const handleSearch = () => {
         if (query.trim()) {
             onSearch(query);
-            setQuery(''); // Clear the input after search
         }
     };
 
@@ -88,3 +87,4 @@ export default function SearchInput({ onSearch }: SearchInputProps) {
         </Search>
     );
 }
+

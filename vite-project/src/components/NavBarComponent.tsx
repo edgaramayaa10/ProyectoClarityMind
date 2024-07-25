@@ -18,7 +18,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
 import { Link } from 'react-router-dom';
-import SearchInput from './Search/Search';
+import SearchInput from './Search/SearchInput';
+import SearchComponent from './Search/SearchComponent';
 
 const pages = ['Meditacion Guiada'];
 const pages1 = ['Control diario'];
@@ -191,7 +192,7 @@ function NavBarComponent() {
           </Box>
 
           <Box sx={{ flexGrow: 3, display: 'flex', justifyContent: 'center' }}>
-            <SearchInput onSearch={handleSearch} />
+            <SearchComponent /> {/* Añadir el componente de búsqueda */}
           </Box>
 
           <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
