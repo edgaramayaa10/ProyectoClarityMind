@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate, useLocation, Link } from 'react-router-dom'; // Importa useNavigate y useLocation
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,7 +17,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
-import { Link } from 'react-router-dom';
 import SearchInput from './Search/SearchInput';
 import SearchComponent from './Search/SearchComponent';
 
@@ -29,7 +28,28 @@ function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // Estado para el diálogo de cierre de sesión
+  const [showLogin, setShowLogin] = React.useState(true); // Estado para mostrar u ocultar el botón de Login
+
   const navigate = useNavigate(); // Usar useNavigate para redirección
+  const location = useLocation(); // Usar useLocation para obtener la URL actual
+
+  React.useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    setShowLogin(location.pathname !== '/login' && !isAuthenticated);
+  }, [location.pathname]);
+
+  React.useEffect(() => {
+    const handleStorageChange = () => {
+      const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+      setShowLogin(location.pathname !== '/login' && !isAuthenticated);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [location.pathname]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -77,9 +97,10 @@ function NavBarComponent() {
   };
 
   const handleConfirmLogout = () => {
-    // Aquí deberías manejar la lógica de cierre de sesión
+    localStorage.removeItem('isAuthenticated'); // Elimina el estado de autenticación
     handleCloseLogoutDialog();
     navigate('/login'); // Redirige al login después de cerrar sesión
+    setShowLogin(true); // Asegura que el botón de Login se muestre
   };
 
   return (
@@ -195,9 +216,11 @@ function NavBarComponent() {
             <SearchComponent /> {/* Añadir el componente de búsqueda */}
           </Box>
 
-          <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
-            <Button color='inherit'><Link to="/login">Login</Link></Button>
-          </Box>
+          {showLogin && (
+            <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
+              <Button color='inherit'><Link to="/login">Login</Link></Button>
+            </Box>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
