@@ -3,7 +3,6 @@ import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import IconButton from '@mui/material/IconButton';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -79,12 +78,6 @@ export default function SearchInput({ onSearch }: SearchInputProps) {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
             />
-            <IconButton
-                onClick={handleSearch}
-                sx={{ position: 'absolute', right: 0, height: '100%', color: 'black' }}
-            >
-                <SearchIcon />
-            </IconButton>
         </Search>
     );
 }
