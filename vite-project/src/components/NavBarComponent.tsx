@@ -204,7 +204,7 @@ function NavBarComponent() {
             </Link>
           </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '50px'}}>
             <Link to="/control" style={{ textDecoration: 'none' }}>
               {pages1.map((page1) => (
                 <Button
@@ -220,7 +220,7 @@ function NavBarComponent() {
         </Box>
 
         {/* Barra de Búsqueda */}
-        <Box sx={{ flexGrow: 4, marginLeft: '100px' }}>
+        <Box sx={{ flexGrow: 4, marginLeft: '80px' }}>
           <SearchComponent />
         </Box>
 
