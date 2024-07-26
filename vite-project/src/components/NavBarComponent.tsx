@@ -214,7 +214,7 @@ function NavBarComponent() {
         </Box>
 
         {/* Barra de Búsqueda */}
-        <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end', ml: 'auto', mr: 4 }}>
+        <Box sx={{ flexGrow: 4, marginLeft:'150px'   }}>
           <SearchComponent />
         </Box>
 
