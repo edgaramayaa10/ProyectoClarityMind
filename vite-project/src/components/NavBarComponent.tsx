@@ -20,7 +20,7 @@ import SearchComponent from './Search/SearchComponent';
 
 const pages = ['Meditacion Guiada'];
 const pages1 = ['Control diario'];
-const settings = ['Perfil', 'Cerrar sesion'];
+const settings = ['Perfil', 'Grafica', 'Cerrar sesion'];
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -76,6 +76,9 @@ function NavBarComponent() {
     switch (setting) {
       case 'Perfil':
         navigate('/Perfil');
+        break;
+      case 'Grafica':
+        navigate('/grafica');
         break;
       case 'Cerrar sesion':
         handleOpenLogoutDialog();
