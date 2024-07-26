@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom'; // Importa useNavigate y useLocation
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,16 +22,16 @@ import SearchComponent from './Search/SearchComponent';
 
 const pages = ['Meditacion Guiada'];
 const pages1 = ['Control diario'];
-const settings = ['Perfil', 'Cerrar sesion'];
+const settings = ['Perfil', 'Grafica', 'Cerrar sesion'];
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // Estado para el diálogo de cierre de sesión
-  const [showLogin, setShowLogin] = React.useState(true); // Estado para mostrar u ocultar el botón de Login
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false);
+  const [showLogin, setShowLogin] = React.useState(true);
 
-  const navigate = useNavigate(); // Usar useNavigate para redirección
-  const location = useLocation(); // Usar useLocation para obtener la URL actual
+  const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
@@ -69,19 +69,21 @@ function NavBarComponent() {
 
   const handleSearch = (query: string) => {
     if (query.trim()) {
-      // Redirigir a la página de resultados de búsqueda con la consulta
       navigate(`/search?query=${encodeURIComponent(query)}`);
     }
   };
 
   const handleMenuItemClick = (setting: string) => {
-    handleCloseUserMenu(); // Cierra el menú
+    handleCloseUserMenu();
     switch (setting) {
       case 'Perfil':
         navigate('/Perfil');
         break;
+      case 'Grafica':
+        navigate('/grafica');
+        break;
       case 'Cerrar sesion':
-        handleOpenLogoutDialog(); // Mostrar el diálogo de confirmación
+        handleOpenLogoutDialog();
         break;
       default:
         break;
@@ -97,10 +99,10 @@ function NavBarComponent() {
   };
 
   const handleConfirmLogout = () => {
-    localStorage.removeItem('isAuthenticated'); // Elimina el estado de autenticación
+    localStorage.removeItem('isAuthenticated');
     handleCloseLogoutDialog();
-    navigate('/login'); // Redirige al login después de cerrar sesión
-    setShowLogin(true); // Asegura que el botón de Login se muestre
+    navigate('/login');
+    setShowLogin(true);
   };
 
   return (
@@ -213,12 +215,12 @@ function NavBarComponent() {
           </Box>
 
           <Box sx={{ flexGrow: 3, display: 'flex', justifyContent: 'center' }}>
-            <SearchComponent /> {/* Añadir el componente de búsqueda */}
+            <SearchComponent />
           </Box>
 
           {showLogin && (
             <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
-              <Button color='inherit'><Link to="/login">Login</Link></Button>
+              <Button color="inherit"><Link to="/login">Login</Link></Button>
             </Box>
           )}
 
@@ -254,11 +256,7 @@ function NavBarComponent() {
         </Toolbar>
       </Container>
 
-      {/* Diálogo de Confirmación de Cierre de Sesión */}
-      <Dialog
-        open={openLogoutDialog}
-        onClose={handleCloseLogoutDialog}
-      >
+      <Dialog open={openLogoutDialog} onClose={handleCloseLogoutDialog}>
         <DialogTitle>Confirmación</DialogTitle>
         <DialogContent>
           <Typography>¿Estás seguro que quieres cerrar sesión?</Typography>

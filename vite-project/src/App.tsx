@@ -9,6 +9,7 @@ import ControlDiario from './components/ControlDiario/ControlDiario';
 import HomePage from './components/HomePage/HomePage';
 import ActivarCuenta from './components/CardRegistro/ActivarCuenta';
 import Profile from './components/Profile/Profile';
+import Grafica from './components/Grafica/Grafica';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/meditacion" element={<MeditacionGuiada />} />
         <Route path="/control" element={<ControlDiario />} />
         <Route path="/Perfil" element={<Profile />} />
+        <Route path="/grafica" element={<Grafica />} />
       </Routes>
     </>
   );
