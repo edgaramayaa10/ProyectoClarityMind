@@ -1,6 +1,6 @@
 // src/components/SearchResultList.tsx
 import React from 'react';
-import { List, ListItem, ListItemText, Typography, Link } from '@mui/material';
+import { List, ListItem, ListItemText, Typography, Box } from '@mui/material';
 
 interface SearchResultListProps {
     results: any[];
@@ -11,23 +11,23 @@ interface SearchResultListProps {
 
 const SearchResultList: React.FC<SearchResultListProps> = ({ results, query, loading, error }) => {
     return (
-        <div>
+        <Box sx={{ position: 'absolute', width: '100%', mt: 1, zIndex: 1, backgroundColor: 'white', borderRadius: 1, boxShadow: 1 }}>
             {loading && <Typography variant="body1">Loading...</Typography>}
             {error && <Typography color="error">{error}</Typography>}
             {!loading && !error && (
                 <List>
                     {results.length > 0 ? (
                         results.map((result, index) => (
-                            <ListItem key={index} component={Link} href={result.url}>
+                            <ListItem key={index} component="a" href={result.url}>
                                 <ListItemText primary={result.title} secondary={result.description} />
                             </ListItem>
                         ))
                     ) : (
-                        query && <Typography>No se encontraron resultados.</Typography>
+                        <Typography sx={{ p: 2 }}>No se encontraron resultados.</Typography>
                     )}
                 </List>
             )}
-        </div>
+        </Box>
     );
 };
 
