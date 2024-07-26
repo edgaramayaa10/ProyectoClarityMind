@@ -220,7 +220,7 @@ function NavBarComponent() {
         </Box>
 
         {/* Barra de Búsqueda */}
-        <Box sx={{ flexGrow: 4, marginLeft: '150px' }}>
+        <Box sx={{ flexGrow: 4, marginLeft: '100px' }}>
           <SearchComponent />
         </Box>
 
@@ -234,7 +234,7 @@ function NavBarComponent() {
         )}
 
         {/* Menú de Usuario */}
-        <Box sx={{ flexGrow: 0, marginRight: '40px' }}>
+        <Box sx={{ flexGrow: 0, marginRight: '20px' }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
