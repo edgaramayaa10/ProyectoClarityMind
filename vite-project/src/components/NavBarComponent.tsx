@@ -18,9 +18,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
 import SearchComponent from './Search/SearchComponent';
 
-const pages = ['Meditacion Guiada'];
-const pages1 = ['Control diario'];
-const settings = ['Perfil', 'Grafica', 'Cerrar sesion'];
+const pages = ['Meditación Guiada'];
+const pages1 = ['Control Diario'];
+const settings = ['Perfil', 'Grafica', 'Cerrar sesión'];
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -80,7 +80,7 @@ function NavBarComponent() {
       case 'Grafica':
         navigate('/grafica');
         break;
-      case 'Cerrar sesion':
+      case 'Cerrar sesión':
         handleOpenLogoutDialog();
         break;
       default:
@@ -125,13 +125,13 @@ function NavBarComponent() {
           display: 'flex', 
           alignItems: 'center',
           width: '100%',
-          paddingLeft: '0', // Asegura que el contenido esté alineado a la izquierda
-          paddingRight: '0', // Asegura que no haya padding a la derecha
+          paddingLeft: '0', 
+          paddingRight: '0', 
         }}
       >
         {/* Logo y Nombre alineados a la izquierda */}
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, ml: -2 }}>
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', marginLeft: 40 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, ml: 4 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
             <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }} />
             <Typography
               variant="h6"
@@ -145,6 +145,7 @@ function NavBarComponent() {
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
+                marginRight:'40px'
               }}
             >
               CLARITYMIND
@@ -188,33 +189,38 @@ function NavBarComponent() {
         </Box>
 
         {/* Menú de Navegación (Desktop) */}
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', ml: 'auto', mr: 2 }}>
-          <Link to="/meditacion" style={{ textDecoration: 'none' }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Link>
-          <Link to="/control" style={{ textDecoration: 'none' }}>
-            {pages1.map((page1) => (
-              <Button
-                key={page1}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
-              >
-                {page1}
-              </Button>
-            ))}
-          </Link>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', ml: 'auto', mr: 4 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', mr: 4 }}>
+            <Link to="/meditacion" style={{ textDecoration: 'none' }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
+                >
+                  {page}
+                </Button>
+              ))}
+            </Link>
+          </Box>
+
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Link to="/control" style={{ textDecoration: 'none' }}>
+              {pages1.map((page1) => (
+                <Button
+                  key={page1}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: '#045346', display: 'block', fontWeight: 'bolder' }}
+                >
+                  {page1}
+                </Button>
+              ))}
+            </Link>
+          </Box>
         </Box>
 
         {/* Barra de Búsqueda */}
-        <Box sx={{ flexGrow: 4, marginLeft:'150px'   }}>
+        <Box sx={{ flexGrow: 4, marginLeft: '150px' }}>
           <SearchComponent />
         </Box>
 
