@@ -111,8 +111,9 @@ const CardLogIn: React.FC = () => {
                         </Link>
                     </p>
                     <button
+                    
                         type="submit"
-                        className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                        className="inline-block rounded-lg bg-[#FCD961] px-5 py-3 text-sm font-medium text-[#045346]"
                     >
                         Registrar
                     </button>
