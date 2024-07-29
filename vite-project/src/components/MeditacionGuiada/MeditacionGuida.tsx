@@ -4,13 +4,11 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 
-// Importa los componentes de contenido específicos
 import MeditacionVisualizaciones from "./MeditacionVisualizaciones";
 import RelajacionEscaneo from "./RelajacionEscaneo";
 import TonosBinaurales from "./TonosBinaurales";

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom'; // Importa useNavigate y useLocation
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,30 +7,29 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import claritymindLogo from './IMG/Estudio_de_Yoga__2_-removebg-preview.png';
-import SearchInput from './Search/Search';
+import SearchComponent from './Search/SearchComponent';
 
-const pages = ['Meditacion Guiada'];
-const pages1 = ['Control diario'];
-const settings = ['Perfil', 'Cerrar sesion'];
+const pages = ['Meditación Guiada'];
+const pages1 = ['Control Diario'];
+const settings = ['Perfil', 'Grafica', 'Cerrar sesión'];
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false); // Estado para el diálogo de cierre de sesión
-  const [showLogin, setShowLogin] = React.useState(true); // Estado para mostrar u ocultar el botón de Login
+  const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false);
+  const [showLogin, setShowLogin] = React.useState(true);
 
-  const navigate = useNavigate(); // Usar useNavigate para redirección
-  const location = useLocation(); // Usar useLocation para obtener la URL actual
+  const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
@@ -68,19 +67,21 @@ function NavBarComponent() {
 
   const handleSearch = (query: string) => {
     if (query.trim()) {
-      // Redirigir a la página de resultados de búsqueda con la consulta
       navigate(`/search?query=${encodeURIComponent(query)}`);
     }
   };
 
   const handleMenuItemClick = (setting: string) => {
-    handleCloseUserMenu(); // Cierra el menú
+    handleCloseUserMenu();
     switch (setting) {
       case 'Perfil':
         navigate('/Perfil');
         break;
-      case 'Cerrar sesion':
-        handleOpenLogoutDialog(); // Mostrar el diálogo de confirmación
+      case 'Grafica':
+        navigate('/grafica');
+        break;
+      case 'Cerrar sesión':
+        handleOpenLogoutDialog();
         break;
       default:
         break;
@@ -96,95 +97,101 @@ function NavBarComponent() {
   };
 
   const handleConfirmLogout = () => {
-    localStorage.removeItem('isAuthenticated'); // Elimina el estado de autenticación
+    localStorage.removeItem('isAuthenticated');
     handleCloseLogoutDialog();
-    navigate('/login'); // Redirige al login después de cerrar sesión
-    setShowLogin(true); // Asegura que el botón de Login se muestre
+    navigate('/login');
+    setShowLogin(true);
   };
 
   return (
-    <AppBar position="fixed" sx={{ width: '100%', background: 'white', color: '#D49F11', height: '100px', borderBottom: '1px solid gray' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-          <Link to="/">
+    <AppBar 
+      position="fixed" 
+      sx={{ 
+        width: '100%', 
+        background: 'white', 
+        color: '#D49F11', 
+        height: '100px', 
+        borderBottom: '1px solid gray',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0',
+        boxShadow: 'none',
+        zIndex: 1300
+      }}
+    >
+      <Toolbar 
+        disableGutters 
+        sx={{ 
+          display: 'flex', 
+          alignItems: 'center',
+          width: '100%',
+          paddingLeft: '0', 
+          paddingRight: '0', 
+        }}
+      >
+        {/* Logo y Nombre alineados a la izquierda */}
+        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, ml: 4 }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
             <Box component="img" src={claritymindLogo} alt="ClarityMind Logo" sx={{ height: '100px', mr: 2 }} />
-          </Link>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            CLARITYMIND
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#app-bar-with-responsive-menu"
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+                marginRight:'40px'
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+              CLARITYMIND
+            </Typography>
+          </Link>
+        </Box>
 
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
+        {/* Menú de Navegación (Movil) */}
+        <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
+          <IconButton
+            size="large"
+            aria-label="menu"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
           >
-            CLARITYMIND
-          </Typography>
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+          >
+            {pages.map((page) => (
+              <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">{page}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft: '100px' }}>
-            <Link to="/meditacion">
+        {/* Menú de Navegación (Desktop) */}
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', ml: 'auto', mr: 4 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', mr: 4 }}>
+            <Link to="/meditacion" style={{ textDecoration: 'none' }}>
               {pages.map((page) => (
                 <Button
                   key={page}
@@ -197,8 +204,8 @@ function NavBarComponent() {
             </Link>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', marginLeft: '100px' }}>
-            <Link to="/control">
+          <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '50px'}}>
+            <Link to="/control" style={{ textDecoration: 'none' }}>
               {pages1.map((page1) => (
                 <Button
                   key={page1}
@@ -210,54 +217,56 @@ function NavBarComponent() {
               ))}
             </Link>
           </Box>
+        </Box>
 
-          <Box sx={{ flexGrow: 3, display: 'flex', justifyContent: 'center' }}>
-            <SearchInput onSearch={handleSearch} />
+        {/* Barra de Búsqueda */}
+        <Box sx={{ flexGrow: 4, marginLeft: '80px' }}>
+          <SearchComponent />
+        </Box>
+
+        {/* Botón de Login */}
+        {showLogin && (
+          <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '40px' }}>
+            <Button color='inherit'>
+              <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>Login</Link>
+            </Button>
           </Box>
+        )}
 
-          {showLogin && (
-            <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '20px' }}>
-              <Button color='inherit'><Link to="/login">Login</Link></Button>
-            </Box>
-          )}
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
+        {/* Menú de Usuario */}
+        <Box sx={{ flexGrow: 0, marginRight: '20px' }}>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+      </Toolbar>
 
       {/* Diálogo de Confirmación de Cierre de Sesión */}
-      <Dialog
-        open={openLogoutDialog}
-        onClose={handleCloseLogoutDialog}
-      >
+      <Dialog open={openLogoutDialog} onClose={handleCloseLogoutDialog}>
         <DialogTitle>Confirmación</DialogTitle>
         <DialogContent>
           <Typography>¿Estás seguro que quieres cerrar sesión?</Typography>
