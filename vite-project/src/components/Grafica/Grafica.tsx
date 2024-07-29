@@ -113,8 +113,8 @@ const Grafica = () => {
             </div>
             <div style={mainContentStyle}>
                 <div style={sidebarStyle}>
-                    <div style={titleStyle}>Aquí verás tu progreso.</div>
-                    <div style={textStyle}>Aquí puedes ver una gráfica que resume tus respuestas en el control diario, para que puedas ver tus puntos altos o bajos.</div>
+                    <div className='text-[#045346]' style={titleStyle}>Aquí verás tu progreso.</div>
+                    <div  className='text-gray-500' style={textStyle}>Aquí puedes ver una gráfica que resume tus respuestas en el control diario, para que puedas ver tus puntos altos o bajos.</div>
                 </div>
                 <div style={chartContainerStyle}>
                     <BarChart
