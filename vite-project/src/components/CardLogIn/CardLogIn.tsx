@@ -37,8 +37,8 @@ const CardLogIn: React.FC = () => {
     return (
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 mt-24">
             <div className="mx-auto max-w-lg text-center">
-                <h1 className="text-2xl font-bold sm:text-3xl">Bienvenido a ClarityMind!</h1>
-                <p className="mt-4 text-gray-500">
+                <h1 className="text-3xl font-bold text-[#045346]">Bienvenido a ClarityMind!</h1>
+                <p className="mt-4 text-[#D49F11]">
                     Inicia sesión para disfrutar de todas las ventajas.
                 </p>
             </div>
@@ -77,7 +77,7 @@ const CardLogIn: React.FC = () => {
                 {error && <p style={{ color: 'red' }}>{error}</p>}
 
                 <div className="flex items-center justify-between">
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-[#045346]">
                         ¿No tienes cuenta?
                         <Link to="/login/registrate" className="ml-2 text-blue-500">
                             Regístrate

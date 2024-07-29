@@ -39,8 +39,8 @@ const CardLogIn: React.FC = () => {
     return (
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 mt-24">
             <div className="mx-auto max-w-lg text-center">
-                <h1 className="text-2xl font-bold sm:text-3xl">Bienvenido a ClarityMind!</h1>
-                <h4 className="text-2xl font-bold sm:text-3xl">Registrate y disfruta de sus ventajas</h4>
+                <h1 className="text-4xl font-bold text-[#045346]">Bienvenido a ClarityMind!</h1>
+                <h4 className="text-2xl mt-4 text-[#D49F11]">Registrate y disfruta de sus ventajas</h4>
                 <p className="mt-4 text-gray-500"></p>
             </div>
 
