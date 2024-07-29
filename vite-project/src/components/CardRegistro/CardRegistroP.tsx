@@ -18,7 +18,7 @@ const CardLogIn: React.FC = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ nombre: name, apellidos: lastName, correo: email, contraseña: password }),
+                body: JSON.stringify({ nombre: name, apellidos: lastName, correo: email, contrasenya: password }),
             });
 
             if (!response.ok) {

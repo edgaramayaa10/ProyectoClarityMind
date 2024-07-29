@@ -10,25 +10,24 @@ const CardLogIn: React.FC = () => {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
+    
         try {
             const response = await fetch('http://localhost:8080/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ correo, contrasenya }),
-                credentials: 'include', // Asegura que las cookies se envíen y reciban
+                body: JSON.stringify({ correo, contrasenya}),
+                credentials: 'include', // Incluye credenciales como cookies si se requiere
             });
-
+    
             if (response.ok) {
                 console.log('Inicio de sesión exitoso');
-                localStorage.setItem('isAuthenticated', 'true'); // Marca al usuario como autenticado
+                localStorage.setItem('isAuthenticated', 'true');
                 navigate('/'); // Redirige a la página principal
             } else {
                 throw new Error('Credenciales incorrectas o error en el servidor');
             }
-
         } catch (error) {
             console.error('Hubo un problema con la solicitud de inicio de sesión:', error);
             setError('Credenciales incorrectas o error en el servidor');
@@ -49,7 +48,7 @@ const CardLogIn: React.FC = () => {
                     <label htmlFor="email" className="sr-only">Email</label>
                     <div className="relative">
                         <input
-                            id="email"
+                            id="correo"
                             type="email"
                             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                             placeholder="Ingrese su correo"
