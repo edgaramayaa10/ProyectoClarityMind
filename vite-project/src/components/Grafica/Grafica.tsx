@@ -1,7 +1,61 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts';
 
+interface ChartData {
+    day: string;
+    series1: number;
+    series2: number;
+    series3: number;
+}
+
 const Grafica = () => {
+    const [chartData, setChartData] = useState<{
+        labels: string[];
+        series: { data: number[] }[];
+    }>({
+        labels: [],
+        series: []
+    });
+
+    useEffect(() => {
+        fetch('/data')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data: ChartData[]) => {
+                console.log('Datos recibidos:', data); // Verifica los datos
+
+                if (data.length === 0) {
+                    console.error('No se recibieron datos');
+                    return;
+                }
+
+                const labels = data.map((item: ChartData) => item.day);
+                const series1 = data.map((item: ChartData) => item.series1);
+                const series2 = data.map((item: ChartData) => item.series2);
+                const series3 = data.map((item: ChartData) => item.series3);
+
+                console.log('Labels:', labels);
+                console.log('Series1:', series1);
+                console.log('Series2:', series2);
+                console.log('Series3:', series3);
+
+                setChartData({
+                    labels,
+                    series: [
+                        { data: series1 },
+                        { data: series2 },
+                        { data: series3 }
+                    ]
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
+
     const pageStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
@@ -24,7 +78,7 @@ const Grafica = () => {
         padding: '20px',
         boxSizing: 'border-box',
         position: 'relative',
-        marginTop: '100px', // Increase space from the top (below the header)
+        marginTop: '100px',
     };
 
     const sidebarStyle: React.CSSProperties = {
@@ -46,10 +100,10 @@ const Grafica = () => {
     };
 
     const chartContainerStyle: React.CSSProperties = {
-        flex: 1,                // Allow the chart container to take remaining space
+        flex: 1,
         display: 'flex',
-        justifyContent: 'center', // Center the chart horizontally
-        alignItems: 'center',     // Center the chart vertically
+        justifyContent: 'center',
+        alignItems: 'center',
     };
 
     return (
@@ -64,12 +118,8 @@ const Grafica = () => {
                 </div>
                 <div style={chartContainerStyle}>
                     <BarChart
-                        xAxis={[{ scaleType: 'band', data: ['Día 1', 'Día 2', 'Día 3'] }]}
-                        series={[
-                            { data: [6, 8, 7] }, 
-                            { data: [4, 9, 5] }, 
-                            { data: [7, 6, 10] } 
-                        ]}
+                        xAxis={[{ scaleType: 'band', data: chartData.labels }]}
+                        series={chartData.series}
                         width={500}
                         height={300}
                     />
