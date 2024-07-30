@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const CardLogIn: React.FC = () => {
     const [name, setName] = useState<string>('');
-    const [lastName, setLastName] = useState<string>('');
+    const [ape, setApe] = useState<string>('');
+    const [username, setUserName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
@@ -11,25 +12,27 @@ const CardLogIn: React.FC = () => {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        console.log({ name, username, email, password });
 
+    
         try {
-            const response = await fetch('http://localhost:8080/api/auth/registrar', {
+            const response = await fetch('http://localhost:8080/api/auth/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ nombre: name, apellidos: lastName, correo: email, contrasenya: password }),
+                body: JSON.stringify({ name, username, email, password }),
             });
-
+    
             if (!response.ok) {
                 throw new Error('Error en el registro');
             }
-
+    
             const data = await response.json();
             console.log('Registro exitoso', data);
-
+    
             navigate('/'); // Cambia la ruta de navegación según sea necesario
-
+    
         } catch (error) {
             console.error('Hubo un problema con la solicitud de registro:', error);
             setError('Hubo un problema con la solicitud de registro');
@@ -46,7 +49,7 @@ const CardLogIn: React.FC = () => {
 
             <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4">
                 <div>
-                    <label htmlFor="name" className="sr-only">Nombre</label>
+                    <label htmlFor="name" className="sr-only">Nombre y apellidos</label>
                     <div className="relative">
                         <input
                             type="text"
@@ -60,14 +63,14 @@ const CardLogIn: React.FC = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="lastName" className="sr-only">Apellidos</label>
+                    <label htmlFor="username" className="sr-only">Nombre de usuario</label>
                     <div className="relative">
                         <input
                             type="text"
                             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                            placeholder="Ingrese sus apellidos"
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
+                            placeholder="Ingresa tu nombre de usuario"
+                            value={username}
+                            onChange={(e) => setUserName(e.target.value)}
                             required
                         />
                     </div>

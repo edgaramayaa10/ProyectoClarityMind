@@ -96,11 +96,29 @@ function NavBarComponent() {
     setOpenLogoutDialog(false);
   };
 
-  const handleConfirmLogout = () => {
-    localStorage.removeItem('isAuthenticated');
+  const handleConfirmLogout = async () => {
+    try {
+      // Llamada a la API para cerrar sesión
+      const response = await fetch('http://localhost:8080/api/auth/signout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // Esto incluye cookies en la solicitud
+      });
+
+      if (response.ok) {
+        // Remueve el estado de autenticación local
+        localStorage.removeItem('isAuthenticated');
+        navigate('/'); // Redirige al usuario a la página principal
+        setShowLogin(true);
+      } else {
+        console.error('Error al cerrar sesión:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Hubo un problema con la solicitud de cierre de sesión:', error);
+    }
     handleCloseLogoutDialog();
-    navigate('/login');
-    setShowLogin(true);
   };
 
   return (

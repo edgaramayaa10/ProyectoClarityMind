@@ -3,8 +3,8 @@ import React, { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const CardLogIn: React.FC = () => {
-    const [correo, setCorreo] = useState<string>('');
-    const [contrasenya, setContrasenya] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
@@ -12,21 +12,24 @@ const CardLogIn: React.FC = () => {
         event.preventDefault();
     
         try {
-            const response = await fetch('http://localhost:8080/api/auth/login', {
+            const response = await fetch('http://localhost:8080/api/auth/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ correo, contrasenya}),
-                credentials: 'include', // Incluye credenciales como cookies si se requiere
+                body: JSON.stringify({ username, password }),
+                credentials: 'include', // Asegura que las cookies se incluyan si se requiere
             });
     
             if (response.ok) {
-                console.log('Inicio de sesión exitoso');
+                const data = await response.json();
+                const token = data.accessToken; // Ajusta 'accessToken' al nombre exacto del campo en la respuesta
+                localStorage.setItem('token', token); // Guarda el token en localStorage o en otro lugar seguro
                 localStorage.setItem('isAuthenticated', 'true');
                 navigate('/'); // Redirige a la página principal
             } else {
-                throw new Error('Credenciales incorrectas o error en el servidor');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Credenciales incorrectas o error en el servidor');
             }
         } catch (error) {
             console.error('Hubo un problema con la solicitud de inicio de sesión:', error);
@@ -45,15 +48,15 @@ const CardLogIn: React.FC = () => {
 
             <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4">
                 <div>
-                    <label htmlFor="email" className="sr-only">Email</label>
+                    <label htmlFor="userName" className="sr-only">Email</label>
                     <div className="relative">
                         <input
-                            id="correo"
-                            type="email"
+                            id="userName"
+                            type="userName"
                             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                            placeholder="Ingrese su correo"
-                            value={correo}
-                            onChange={(e) => setCorreo(e.target.value)}
+                            placeholder="Ingrese su usuario"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                         />
                     </div>
@@ -67,8 +70,8 @@ const CardLogIn: React.FC = () => {
                             type="password"
                             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                             placeholder="Ingrese su contraseña"
-                            value={contrasenya}
-                            onChange={(e) => setContrasenya(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                     </div>
