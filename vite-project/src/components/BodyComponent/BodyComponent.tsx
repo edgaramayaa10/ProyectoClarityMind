@@ -10,14 +10,14 @@ const BodyComponent = () => {
         <React.Fragment>
             <CssBaseline />
             <Box sx={{ bgcolor: '#FBF5E8', height: '100vh', marginTop: '-5px', padding: '16px' }}>
-                <Typography variant="h4" component="h6" gutterBottom sx={{ color:'#D49F11', fontSize: '20px', textAlign: 'center', fontFamily: 'monospace', marginBottom: '20px' }}>
+                <Typography variant="h4" component="h6" gutterBottom sx={{ color:'#D5A649', fontSize: '20px', textAlign: 'center', fontFamily: 'monospace', marginBottom: '20px' }}>
                     NUESTRA MISIÓN 
                 </Typography>
                 <Typography variant="body1" sx={{ textAlign: 'center', color: '#045346', fontFamily:'monospace', fontSize:'25px', marginTop:'20px', marginBottom: '20px' }}>
-                    DAROS CONOCIMIENTOS Y RECURSOS QUE NECESITAIS PARA TENER MÁS FUERTE VUESTRA SALUD MENTAL. 
+                    DAR CONOCIMIENTOS Y RECURSOS QUE NECESITAS PARA TENER MÁS FUERTE TU SALUD MENTAL. 
                 </Typography>
-                <Typography variant="body1" sx={{ textAlign: 'center', color: '#045346', fontFamily:'monospace', fontSize:'20px', marginTop:'20px', marginBottom: '20px' }}>
-                    OS DEJAMOS UNOS CONSEJOS PARA PERSONAS QUE QUIEREN INICIARSE EN LA MEDITACIÓN. 
+                <Typography variant="body1" sx={{ textAlign: 'center', color: '#D5A649', fontFamily:'monospace', fontSize:'20px', marginTop:'20px', marginBottom: '20px' }}>
+                    DEJAMOS UNOS CONSEJOS PARA PERSONAS QUE QUIEREN INICIARSE EN LA MEDITACIÓN. 
                 </Typography>
                 <Grid container spacing={2} sx={{ marginTop: '40px' }}>
                     <Grid item xs={4}>
