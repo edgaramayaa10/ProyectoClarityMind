@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart } from '@mui/x-charts';
+import { BarChart, BarSeries } from '@mui/x-charts';
 
 interface FormularioData {
     respuesta1: number;
@@ -46,11 +46,11 @@ const Grafica = () => {
                 setChartData({
                     labels,
                     series: [
-                        { data: series1, label: 'Respuesta 1' },
-                        { data: series2, label: 'Respuesta 2' },
-                        { data: series3, label: 'Respuesta 3' },
-                        { data: series4, label: 'Respuesta 4' },
-                        { data: series5, label: 'Respuesta 5' }
+                        { data: series1, label: 'Estado general' },
+                        { data: series2, label: 'Ansiedad' },
+                        { data: series3, label: 'Estres' },
+                        { data: series4, label: 'Tu animo' },
+                        { data: series5, label: 'Tiempo dedicado hacia a ti' }
                     ]
                 });
             } catch (error) {
@@ -123,9 +123,12 @@ const Grafica = () => {
                 <div style={chartContainerStyle}>
                     <BarChart
                         xAxis={[{ scaleType: 'band', data: chartData.labels }]}
-                        series={chartData.series}
-                        width={500}
-                        height={300}
+                        series={chartData.series.map(series => ({
+                            ...series,
+                            barSpacing: 0.5, // Ajusta el espaciado entre las barras
+                        }))}
+                        width={700}
+                        height={400}
                     />
                 </div>
             </div>
