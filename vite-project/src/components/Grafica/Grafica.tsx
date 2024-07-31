@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, BarSeries } from '@mui/x-charts';
+import { BarChart } from '@mui/x-charts';
 
 interface FormularioData {
     respuesta1: number;
@@ -36,6 +36,16 @@ const Grafica = () => {
 
                 // Procesar datos para el gráfico
                 const labels = data.map((_, index) => `Día ${index + 1}`);
+
+                // Añadir días específicos si no están presentes
+                const additionalDays = [11, 13, 15];
+                additionalDays.forEach(day => {
+                    if (!labels.includes(`Día ${day}`)) {
+                        labels.splice(day - 1, 0, `Día ${day}`);
+                        data.splice(day - 1, 0, { respuesta1: 0, respuesta2: 0, respuesta3: 0, respuesta4: 0, respuesta5: 0 });
+                    }
+                });
+
                 const series1 = data.map(item => item.respuesta1);
                 const series2 = data.map(item => item.respuesta2);
                 const series3 = data.map(item => item.respuesta3);
