@@ -99,7 +99,7 @@ const Grafica = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
-        marginRight: '20px',
+        marginRight: '-30px', // Reducir el margen derecho para acercar el texto a la gráfica
         width: '200px',
     };
 
@@ -135,7 +135,7 @@ const Grafica = () => {
                         xAxis={[{ scaleType: 'band', data: chartData.labels }]}
                         series={chartData.series.map(series => ({
                             ...series,
-                            barSpacing: 0.5, // Ajusta el espaciado entre las barras
+                            barSpacing: 0.7, // Ajusta el espaciado entre las barras
                         }))}
                         width={700}
                         height={400}
