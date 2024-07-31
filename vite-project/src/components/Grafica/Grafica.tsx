@@ -1,60 +1,65 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BarChart } from '@mui/x-charts';
 
+interface FormularioData {
+    respuesta1: number;
+    respuesta2: number;
+    respuesta3: number;
+    respuesta4: number;
+    respuesta5: number;
+}
+
+interface ChartSeries {
+    data: number[];
+    label: string;
+}
+
 interface ChartData {
-    day: string;
-    series1: number;
-    series2: number;
-    series3: number;
+    labels: string[];
+    series: ChartSeries[];
 }
 
 const Grafica = () => {
-    const [chartData, setChartData] = useState<{
-        labels: string[];
-        series: { data: number[] }[];
-    }>({
+    const [chartData, setChartData] = useState<ChartData>({
         labels: [],
         series: []
     });
 
     useEffect(() => {
-        fetch('/data')
-            .then(response => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api/formularios');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();
-            })
-            .then((data: ChartData[]) => {
-                console.log('Datos recibidos:', data); // Verifica los datos
+                const data: FormularioData[] = await response.json();
 
-                if (data.length === 0) {
-                    console.error('No se recibieron datos');
-                    return;
-                }
+                // Procesar datos para el gráfico
+                const labels = data.map((_, index) => `Día ${index + 1}`);
+                const series1 = data.map(item => item.respuesta1);
+                const series2 = data.map(item => item.respuesta2);
+                const series3 = data.map(item => item.respuesta3);
+                const series4 = data.map(item => item.respuesta4);
+                const series5 = data.map(item => item.respuesta5);
 
-                const labels = data.map((item: ChartData) => item.day);
-                const series1 = data.map((item: ChartData) => item.series1);
-                const series2 = data.map((item: ChartData) => item.series2);
-                const series3 = data.map((item: ChartData) => item.series3);
-
-                console.log('Labels:', labels);
-                console.log('Series1:', series1);
-                console.log('Series2:', series2);
-                console.log('Series3:', series3);
-
+                // Actualizar el estado con los datos formateados
                 setChartData({
                     labels,
                     series: [
-                        { data: series1 },
-                        { data: series2 },
-                        { data: series3 }
+                        { data: series1, label: 'Respuesta 1' },
+                        { data: series2, label: 'Respuesta 2' },
+                        { data: series3, label: 'Respuesta 3' },
+                        { data: series4, label: 'Respuesta 4' },
+                        { data: series5, label: 'Respuesta 5' }
                     ]
                 });
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []); // El array vacío como segundo argumento asegura que el efecto se ejecute solo una vez
 
     const pageStyle: React.CSSProperties = {
         display: 'flex',
@@ -77,7 +82,6 @@ const Grafica = () => {
         alignItems: 'flex-start',
         padding: '20px',
         boxSizing: 'border-box',
-        position: 'relative',
         marginTop: '100px',
     };
 
@@ -114,7 +118,7 @@ const Grafica = () => {
             <div style={mainContentStyle}>
                 <div style={sidebarStyle}>
                     <div className='text-[#045346]' style={titleStyle}>Aquí verás tu progreso.</div>
-                    <div  className='text-gray-500' style={textStyle}>Aquí puedes ver una gráfica que resume tus respuestas en el control diario, para que puedas ver tus puntos altos o bajos.</div>
+                    <div className='text-gray-500' style={textStyle}>Aquí puedes ver una gráfica que resume tus respuestas en el control diario, para que puedas ver tus puntos altos o bajos.</div>
                 </div>
                 <div style={chartContainerStyle}>
                     <BarChart
