@@ -1,9 +1,9 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const CardLogIn: React.FC = () => {
     const [name, setName] = useState<string>('');
-    const [ape, setApe] = useState<string>('');
     const [username, setUserName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -14,7 +14,6 @@ const CardLogIn: React.FC = () => {
         event.preventDefault();
         console.log({ name, username, email, password });
 
-    
         try {
             const response = await fetch('http://localhost:8080/api/auth/signup', {
                 method: 'POST',
@@ -23,16 +22,16 @@ const CardLogIn: React.FC = () => {
                 },
                 body: JSON.stringify({ name, username, email, password }),
             });
-    
+
             if (!response.ok) {
                 throw new Error('Error en el registro');
             }
-    
+
             const data = await response.json();
             console.log('Registro exitoso', data);
-    
+            toast.success('Registro completado'); // Añade la alerta de éxito
             navigate('/'); // Cambia la ruta de navegación según sea necesario
-    
+
         } catch (error) {
             console.error('Hubo un problema con la solicitud de registro:', error);
             setError('Hubo un problema con la solicitud de registro');
@@ -114,7 +113,6 @@ const CardLogIn: React.FC = () => {
                         </Link>
                     </p>
                     <button
-                    
                         type="submit"
                         className="inline-block rounded-lg bg-[#FCD961] px-5 py-3 text-sm font-medium text-[#045346]"
                     >

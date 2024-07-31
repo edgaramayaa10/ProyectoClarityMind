@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 
 const HomePage = () => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
             <ContainerComponent />
             <BodyComponent />
             <BodyComponent2 />
