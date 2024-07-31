@@ -1,30 +1,34 @@
 import { Box, Typography, Grid, Chip } from '@mui/material';
-import muestra from '../IMG/5.png';
 import ReactPlayer from 'react-player';
 import Autoestima from '../Audio/Inicia tu día con AFIRMACIONES para Autoestima y Seguridad en ti 💛 - 5 minutos.mp3';
 import ReducionEstres from '../Audio/Meditación Guiada Afirmaciones para Reducir Estrés y Encontrar Paz 🧘_♀️✨.mp3';
 import Dormir from '../Audio/💤 Haz Esto 5 Minutos Antes de Dormir _ Afirmaciones Positivas _ Meditación de Wayne Dyer.mp3';
 import Chakras from '../Audio/❤️Meditación CORTA para ACTIVAR los 7 CHAKRAS ✨ con Afirmaciones Poderosas_ Meditacion Express.mp3';
+import AfirAutoes from '../MeditacionGuiada/IMG/MediAfirma/autoestima.png';
+import reducirEstres from '../MeditacionGuiada/IMG/MediAfirma/reduccionEstres.jpg';
+import AfirDormir from '../MeditacionGuiada/IMG/MediAfirma/dormirPositivo.png';
+import SieteChakras from '../MeditacionGuiada/IMG/MediAfirma/los7chakras.jpg';
 
 const tarjetas = [
   {
     titulo: 'Meditación de afirmaciones para buena autoestima',
     audio: Autoestima,
-    imagen: muestra // URL de ejemplo
+    imagen: AfirAutoes // URL de ejemplo
   },
   {
     titulo: 'Meditación afirmaciones para reducir estrés',
     audio: ReducionEstres,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: reducirEstres// URL de ejemplo
   },
   {
     titulo: 'Meditación afirmaciones antes de dormir',
     audio: Dormir,
+    imagen: AfirDormir
   },
   {
     titulo: 'Meditación activa los 7 chakras',
     audio: Chakras,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: SieteChakras // URL de ejemplo
   },
 ];
 
@@ -39,7 +43,7 @@ const Afirmaciones = () => {
               <Box
                 sx={{
                   width: 150, // Ancho de la imagen
-                  height: 150, // Altura fija
+                  height: 162, // Altura fija
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',

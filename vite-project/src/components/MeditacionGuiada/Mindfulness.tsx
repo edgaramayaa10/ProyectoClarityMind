@@ -1,30 +1,34 @@
 import { Box, Typography, Grid, Chip } from '@mui/material';
-import muestra from '../IMG/5.png';
 import ReactPlayer from 'react-player';
 import Video1 from '../Audio/Mindfulness 5 Minutos.mp3';
 import paz from '../Audio/Meditación guiada MINDFULNESS ✨ 5 minutos de PAZ MENTAL.mp3';
 import tranquila from '../Audio/Meditación guiada MENTE TRANQUILA 🤍🌀 para Mente Hiperactiva - 5 minutos MINDFULNESS.mp3';
 import ansiedad from '../Audio/Meditación guiada para calmar la ANSIEDAD - 5 minutos Minfulness.mp3';
+import Mindfulness from '../MeditacionGuiada/IMG/Mindfulness/Mindfulness.jpg';
+import MindPazMental from '../MeditacionGuiada/IMG/Mindfulness/mindfunlessPazMental.png';
+import MindMenteTranquila from '../MeditacionGuiada/IMG/Mindfulness/Mindfunlessmentetranquila.jpg';
+import MindAnsiedad from '../MeditacionGuiada/IMG/Mindfulness/mindfunlessCalmarAnsiedad.png';
 
 const tarjetas = [
   {
     titulo: 'Meditación mindfulness',
     audio: Video1,
-    imagen: muestra // URL de ejemplo
+    imagen: Mindfulness// URL de ejemplo
   },
   {
     titulo: 'Meditación mindfulness paz mental',
     audio: paz,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: MindPazMental// URL de ejemplo
   },
   {
     titulo: 'Meditación mindfulness mente tranquila',
     audio: tranquila,
+    imagen: MindMenteTranquila
   },
   {
     titulo: 'Meditación mindfulness para calmar la ansiedad',
     audio: ansiedad,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: MindAnsiedad// URL de ejemplo
   },
 ];
 
@@ -39,7 +43,7 @@ const Mindfunless = () => {
               <Box
                 sx={{
                   width: 150, // Ancho de la imagen
-                  height: 150, // Altura fija
+                  height: 162, // Altura fija
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',
