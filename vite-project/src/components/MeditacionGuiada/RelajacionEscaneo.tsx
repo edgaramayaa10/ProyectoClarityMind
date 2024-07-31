@@ -1,30 +1,35 @@
 import { Box, Typography, Grid, Chip } from '@mui/material';
-import muestra from '../IMG/5.png';
 import ReactPlayer from 'react-player';
 import Escaner from '../Audio/Meditación Escaner Corporal Tumbado, Escaneo Corporal 5 Minutos.mp3';
 import BodyScan from '../Audio/Meditación Guiada del escáner corporal o Body scan (corto).mp3';
 import Relajacion from '../Audio/Meditación guiada con Escaneo Corporal _ 14 minutos de relajación Gabriela Litschi.mp3';
 import niños from '../Audio/RELAJACIÓN PARA NIÑOS _ Escáner corporal.mp3';
+import escanerCorporal from '../MeditacionGuiada/IMG/RelajaEscaneo/escanerCorporal.png';
+import escanerTumbado from '../MeditacionGuiada/IMG/RelajaEscaneo/escanerCorporalTumbado.png';
+import escanerRelajacion from '../MeditacionGuiada/IMG/RelajaEscaneo/escaneoCorporalRelaj.jpg';
+import relajacionNinos from '../MeditacionGuiada/IMG/RelajaEscaneo/relajaciónparaniños.jpeg';
+
 
 const tarjetas = [
   {
     titulo: 'Meditación escaner corporal tumbado',
     audio: Escaner,
-    imagen: muestra // URL de ejemplo
+    imagen: escanerTumbado // URL de ejemplo
   },
   {
     titulo: 'Meditación BodyScan',
     audio: BodyScan,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: escanerCorporal // URL de ejemplo
   },
   {
     titulo: 'Meditación escaneo corporal para la relajacion',
     audio: Relajacion,
+    imagen: escanerRelajacion
   },
   {
     titulo: 'Meditación relajacion para niños',
     audio: niños,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: relajacionNinos// URL de ejemplo
   },
 ];
 
@@ -39,7 +44,7 @@ const RelajacionEscaneo = () => {
               <Box
                 sx={{
                   width: 150, // Ancho de la imagen
-                  height: 150, // Altura fija
+                  height: 162, // Altura fija
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',

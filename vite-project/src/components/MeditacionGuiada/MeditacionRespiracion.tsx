@@ -1,30 +1,35 @@
 import { Box, Typography, Grid, Chip } from '@mui/material';
-import muestra from '../IMG/5.png';
 import ReactPlayer from 'react-player';
 import Respiracion from '../Audio/Mindfulness meditación guiada corta de 3 minutos - Atención a la respiración.mp3';
 import Profundo from '../Audio/Meditación Guiada_ Técnica de Respiración Profunda.mp3';
 import Consciente from '../Audio/Sencillo ejercicio de RESPIRACIÓN CONSCIENTE. (5 minutos).mp3';
 import calmar from '../Audio/Meditación para calmar tu mente. Atención a la respiración en 7 minutos (1).mp3';
+import AtencionRespiracion from '../MeditacionGuiada/IMG/MediRespiracion/atencionRespiracion.png';
+import RespiracionProfunda from '../MeditacionGuiada/IMG/MediRespiracion/respiracionProfunda.png';
+import RespiracionConsciente from '../MeditacionGuiada/IMG/MediRespiracion/respiracionConsciente.jpg';
+import RespiracionCalmar from '../MeditacionGuiada/IMG/MediRespiracion/menteTranquila.png';
+
 
 const tarjetas = [
   {
     titulo: 'Meditación atención a la respiración',
     audio: Respiracion,
-    imagen: muestra // URL de ejemplo
+    imagen: AtencionRespiracion// URL de ejemplo
   },
   {
     titulo: 'Meditación respiración profunda',
     audio: Profundo,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: RespiracionProfunda // URL de ejemplo
   },
   {
     titulo: 'Meditación respiración consciente',
     audio: Consciente,
+    imagen: RespiracionConsciente
   },
   {
     titulo: 'Meditación respiración para calmar tu mente',
     audio: calmar,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: RespiracionCalmar // URL de ejemplo
   },
 ];
 
@@ -39,7 +44,7 @@ const MeditacionRespiracion = () => {
               <Box
                 sx={{
                   width: 150, // Ancho de la imagen
-                  height: 150, // Altura fija
+                  height: 162, // Altura fija
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',

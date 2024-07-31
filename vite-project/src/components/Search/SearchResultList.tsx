@@ -12,8 +12,8 @@ interface SearchResultListProps {
 const SearchResultList: React.FC<SearchResultListProps> = ({ results, query, loading, error }) => {
     return (
         <Box sx={{ position: 'absolute', width: '100%', mt: 1, zIndex: 1, backgroundColor: 'white', borderRadius: 1, boxShadow: 1 }}>
-            {loading && <Typography variant="body1">Loading...</Typography>}
-            {error && <Typography color="error">{error}</Typography>}
+            {loading && <Typography variant="body1" sx={{ marginLeft: 2 }}>Loading...</Typography>}
+            {error && <Typography color="error" sx={{ marginLeft: 2 }}>{error}</Typography>}
             {!loading && !error && (
                 <List>
                     {results.length > 0 ? (
@@ -23,7 +23,7 @@ const SearchResultList: React.FC<SearchResultListProps> = ({ results, query, loa
                             </ListItem>
                         ))
                     ) : (
-                        <Typography sx={{ p: 2 }}>No se encontraron resultados.</Typography>
+                        <Typography sx={{ p: 2, marginLeft: 2 }}>No se encontraron resultados.</Typography>
                     )}
                 </List>
             )}

@@ -1,9 +1,9 @@
 import { Box, Typography, Grid, Chip } from '@mui/material';
-import picDelta from './IMG/delta.png';
-import picTheta from './IMG/theta.png';
-import picAlpha from './IMG/alpha.png';
-import picBeta from './IMG/beta.png';
-import picGamma from './IMG/gamma.png';
+import picDelta from '../MeditacionGuiada/IMG/TonosBinaurales/delta.png';
+import picTheta from '../MeditacionGuiada/IMG/TonosBinaurales/theta.png';
+import picAlpha from '../MeditacionGuiada/IMG/TonosBinaurales/alpha.png';
+import picBeta from '../MeditacionGuiada/IMG/TonosBinaurales/beta.png';
+import picGamma from '../MeditacionGuiada/IMG/TonosBinaurales/gamma.png';
 import ReactPlayer from 'react-player';
 import OndasAlfa from '../Audio/Meditación de 5 minutos con música binaural con Ondas Alfa _ Calma y paz interior _ Med Soul (1).mp3';
 import Theta from '../Audio/Theta Healing. Conexión a la Onda Theta. Meditación al 7º plano..mp3';
@@ -55,7 +55,7 @@ const TonosBinaurales = () => {
               <Box 
                 sx={{ 
                   width: 150, // Ancho de la imagen
-                  height:150, // Altura fija aumentada
+                  height:162, // Altura fija aumentada
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',

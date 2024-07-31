@@ -14,7 +14,7 @@ import RelajacionEscaneo from "./RelajacionEscaneo";
 import TonosBinaurales from "./TonosBinaurales";
 import Afirmaciones from "./Afirmaciones";
 import MeditacionRespiracion from "./MeditacionRespiracion";
-import Mindfunless from "./Mindfunless";
+import Mindfulness from "./Mindfulness";
 import MeditacionDormir from "./MeditacionDormir";
 
 const MeditacionGuiada = () => {
@@ -35,7 +35,7 @@ const MeditacionGuiada = () => {
       { text: "Tonos Binaurales", component: <TonosBinaurales /> },
       { text: "Afirmaciones", component: <Afirmaciones /> },
       { text: "Meditacion guiada de atencion a la respiracion", component: <MeditacionRespiracion /> },
-      { text: "Mindfunless", component: <Mindfunless /> },
+      { text: "Mindfunless", component: <Mindfulness /> },
       { text: "Meditacion para dormir mejor", component: <MeditacionDormir /> }
     ];
 

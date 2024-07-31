@@ -1,30 +1,35 @@
 import { Box, Typography, Grid, Chip } from '@mui/material';
-import muestra from '../IMG/5.png';
 import ReactPlayer from 'react-player';
 import Video1 from '../Audio/MEDITACIÓN CORTA _ VISUALIZACIÓN RELAJANTE _ MEDITACIÓN 10 MINUTOS ❤ EASY ZEN.mp3';
 import Video2 from '../Audio/Visualización Guiada para Manifestar 🌈 👁 _ Ley de la Atracción y Manifestación.mp3';
 import Video3 from '../Audio/VISUALIZACIÓN  EL BOSQUE . MEDITACIÓN PARA LA ANSIEDAD Y EL AGOBIO. RELAJACIÓN DE CUERPO Y MENTE ☼.mp3';
 import Video4 from '../Audio/Meditación para Visualizar tus Objetivos Cumplidos _ Campo Cuántico _ Ley de la Atracción.mp3';
+import VisRelajante from '../MeditacionGuiada/IMG/MediVisuali/visualizacionRelajante.jpg';
+import Manifestar from '../MeditacionGuiada/IMG/MediVisuali/imagenManifestar.jpg';
+import AnsiedadAgobio from '../MeditacionGuiada/IMG/MediVisuali/imagenAnsiedadEstres.png';
+import Objetivos from '../MeditacionGuiada/IMG/MediVisuali/objetivosCumplidos.png';
 
 const tarjetas = [
   {
     titulo: 'Meditación con visualizaciones relajante',
     audio: Video1,
-    imagen: muestra // URL de ejemplo
+    imagen: VisRelajante // URL de ejemplo
   },
   {
     titulo: 'Meditación con visualizaciones manifestar',
     audio: Video2,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: Manifestar // URL de ejemplo
   },
   {
     titulo: 'Meditación con visualizaciones para ansiedad y agobio',
     audio: Video3,
+    imagen: AnsiedadAgobio
+
   },
   {
     titulo: 'Meditación con visualizaciones para objetivos cumplidos',
     audio: Video4,
-    imagen: 'https://via.placeholder.com/150x300' // URL de ejemplo
+    imagen: Objetivos // URL de ejemplo
   },
 ];
 
@@ -39,7 +44,7 @@ const MeditacionVisualizaciones = () => {
               <Box
                 sx={{
                   width: 150, // Ancho de la imagen
-                  height: 150, // Altura fija
+                  height: 162, // Altura fija
                   backgroundImage: `url(${tarjeta.imagen})`,
                   backgroundSize: 'cover', // Asegura que la imagen cubra el área
                   backgroundPosition: 'center',
