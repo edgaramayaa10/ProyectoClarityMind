@@ -10,11 +10,11 @@ import HomePage from './components/HomePage/HomePage';
 import ActivarCuenta from './components/CardRegistro/ActivarCuenta';
 import Profile from './components/Profile/Profile';
 import Grafica from './components/Grafica/Grafica';
-
+import { AuthProvider } from './components/AuthContext/AuthContext';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <NavBarComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/Perfil" element={<Profile />} />
         <Route path="/grafica" element={<Grafica />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 

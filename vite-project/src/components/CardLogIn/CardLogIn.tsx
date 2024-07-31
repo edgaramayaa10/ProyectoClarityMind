@@ -1,11 +1,13 @@
 
 import React, { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext/AuthContext';
 
 const CardLogIn: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
+    const { setUser } = useAuth(); // Obtén la función para actualizar el contexto
     const navigate = useNavigate();
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -18,14 +20,21 @@ const CardLogIn: React.FC = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ username, password }),
-                credentials: 'include', // Asegura que las cookies se incluyan si se requiere
+                credentials: 'include',
             });
     
             if (response.ok) {
                 const data = await response.json();
                 const token = data.accessToken; // Ajusta 'accessToken' al nombre exacto del campo en la respuesta
-                localStorage.setItem('token', token); // Guarda el token en localStorage o en otro lugar seguro
+                
+                // Guarda solo username y email en el contexto
+                localStorage.setItem('token', token); // Guarda el token en localStorage
                 localStorage.setItem('isAuthenticated', 'true');
+                setUser({
+                    username: data.username,
+                    email: data.email
+                }); // Establece el usuario en el contexto
+
                 navigate('/'); // Redirige a la página principal
             } else {
                 const errorData = await response.json();
@@ -48,11 +57,11 @@ const CardLogIn: React.FC = () => {
 
             <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4">
                 <div>
-                    <label htmlFor="userName" className="sr-only">Email</label>
+                    <label htmlFor="userName" className="sr-only">Usuario</label>
                     <div className="relative">
                         <input
                             id="userName"
-                            type="userName"
+                            type="text"
                             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                             placeholder="Ingrese su usuario"
                             value={username}
