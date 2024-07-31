@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, FormControl, FormControlLabel, RadioGroup, Radio, Button } from '@mui/material';
 import { styled } from '@mui/system';
+import { toast } from 'sonner';
 
 // Estilos del contenedor principal
 const OuterContainer = styled('div')({
@@ -96,13 +97,13 @@ const SurveyForm: React.FC = () => {
             });
     
             if (response.ok) {
-                alert('Formulario enviado exitosamente');
+                toast.success('Formulario enviado correctamente');
             } else {
-                alert('Error al enviar el formulario');
+                toast.error('Error al enviar el formulario');
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Error al enviar el formulario');
+            toast.error('Error al enviar el formulario');
         }
     };
 

@@ -36,6 +36,16 @@ const Grafica = () => {
 
                 // Procesar datos para el gráfico
                 const labels = data.map((_, index) => `Día ${index + 1}`);
+
+                // Añadir días específicos si no están presentes
+                const additionalDays = [11, 13, 15];
+                additionalDays.forEach(day => {
+                    if (!labels.includes(`Día ${day}`)) {
+                        labels.splice(day - 1, 0, `Día ${day}`);
+                        data.splice(day - 1, 0, { respuesta1: 0, respuesta2: 0, respuesta3: 0, respuesta4: 0, respuesta5: 0 });
+                    }
+                });
+
                 const series1 = data.map(item => item.respuesta1);
                 const series2 = data.map(item => item.respuesta2);
                 const series3 = data.map(item => item.respuesta3);
@@ -46,11 +56,11 @@ const Grafica = () => {
                 setChartData({
                     labels,
                     series: [
-                        { data: series1, label: 'Respuesta 1' },
-                        { data: series2, label: 'Respuesta 2' },
-                        { data: series3, label: 'Respuesta 3' },
-                        { data: series4, label: 'Respuesta 4' },
-                        { data: series5, label: 'Respuesta 5' }
+                        { data: series1, label: 'Estado general' },
+                        { data: series2, label: 'Ansiedad' },
+                        { data: series3, label: 'Estres' },
+                        { data: series4, label: 'Tu animo' },
+                        { data: series5, label: 'Tiempo dedicado hacia a ti' }
                     ]
                 });
             } catch (error) {
@@ -123,9 +133,12 @@ const Grafica = () => {
                 <div style={chartContainerStyle}>
                     <BarChart
                         xAxis={[{ scaleType: 'band', data: chartData.labels }]}
-                        series={chartData.series}
-                        width={500}
-                        height={300}
+                        series={chartData.series.map(series => ({
+                            ...series,
+                            barSpacing: 0.5, // Ajusta el espaciado entre las barras
+                        }))}
+                        width={700}
+                        height={400}
                     />
                 </div>
             </div>
