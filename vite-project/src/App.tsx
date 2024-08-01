@@ -15,6 +15,8 @@ import { AuthProvider } from './components/AuthContext/AuthContext';
 
 function App() {
   return (
+    <>
+    <Toaster position="top-center" richColors expand={false} />
     <AuthProvider>
       <NavBarComponent />
       <Routes>
@@ -28,7 +30,9 @@ function App() {
         <Route path="/grafica" element={<Grafica />} />
 
       </Routes>
-    </AuthProvider>
+      </AuthProvider>
+      </>
+    
   );
 }
 
