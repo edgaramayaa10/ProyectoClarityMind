@@ -26,20 +26,20 @@ function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [openLogoutDialog, setOpenLogoutDialog] = React.useState(false);
-  const [showLogin, setShowLogin] = React.useState(true);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
 
   React.useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-    setShowLogin(location.pathname !== '/login' && !isAuthenticated);
+    const authStatus = localStorage.getItem('isAuthenticated') === 'true';
+    setIsAuthenticated(authStatus);
   }, [location.pathname]);
 
   React.useEffect(() => {
     const handleStorageChange = () => {
-      const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-      setShowLogin(location.pathname !== '/login' && !isAuthenticated);
+      const authStatus = localStorage.getItem('isAuthenticated') === 'true';
+      setIsAuthenticated(authStatus);
     };
 
     window.addEventListener('storage', handleStorageChange);
@@ -98,20 +98,18 @@ function NavBarComponent() {
 
   const handleConfirmLogout = async () => {
     try {
-      // Llamada a la API para cerrar sesión
       const response = await fetch('http://localhost:8080/api/auth/signout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Esto incluye cookies en la solicitud
+        credentials: 'include',
       });
 
       if (response.ok) {
-        // Remueve el estado de autenticación local
         localStorage.removeItem('isAuthenticated');
-        navigate('/'); // Redirige al usuario a la página principal
-        setShowLogin(true);
+        navigate('/');
+        setIsAuthenticated(false);
       } else {
         console.error('Error al cerrar sesión:', response.statusText);
       }
@@ -122,29 +120,29 @@ function NavBarComponent() {
   };
 
   return (
-    <AppBar 
-      position="fixed" 
-      sx={{ 
-        width: '100%', 
-        background: 'white', 
-        color: '#D49F11', 
-        height: '100px', 
+    <AppBar
+      position="fixed"
+      sx={{
+        width: '100%',
+        background: 'white',
+        color: '#D49F11',
+        height: '100px',
         borderBottom: '1px solid gray',
         display: 'flex',
         alignItems: 'center',
         padding: '0',
         boxShadow: 'none',
-        zIndex: 1300
+        zIndex: 1300,
       }}
     >
-      <Toolbar 
-        disableGutters 
-        sx={{ 
-          display: 'flex', 
+      <Toolbar
+        disableGutters
+        sx={{
+          display: 'flex',
           alignItems: 'center',
           width: '100%',
-          paddingLeft: '0', 
-          paddingRight: '0', 
+          paddingLeft: '0',
+          paddingRight: '0',
         }}
       >
         {/* Logo y Nombre alineados a la izquierda */}
@@ -163,7 +161,7 @@ function NavBarComponent() {
                 letterSpacing: '.3rem',
                 color: 'inherit',
                 textDecoration: 'none',
-                marginRight:'40px'
+                marginRight: '40px',
               }}
             >
               CLARITYMIND
@@ -222,7 +220,7 @@ function NavBarComponent() {
             </Link>
           </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '50px'}}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', marginLeft: '50px' }}>
             <Link to="/control" style={{ textDecoration: 'none' }}>
               {pages1.map((page1) => (
                 <Button
@@ -243,7 +241,7 @@ function NavBarComponent() {
         </Box>
 
         {/* Botón de Login */}
-        {showLogin && (
+        {!isAuthenticated && (
           <Box sx={{ flexGrow: 0.02, color: '#045346', backgroundColor: '#FCD961', borderRadius: '6px', marginRight: '40px' }}>
             <Button color='inherit'>
               <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>Login</Link>
@@ -252,35 +250,37 @@ function NavBarComponent() {
         )}
 
         {/* Menú de Usuario */}
-        <Box sx={{ flexGrow: 0, marginRight: '20px' }}>
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-            </IconButton>
-          </Tooltip>
-          <Menu
-            sx={{ mt: '45px' }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
+        {isAuthenticated && (
+          <Box sx={{ flexGrow: 0, marginRight: '20px' }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={() => handleMenuItemClick(setting)}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+        )}
       </Toolbar>
 
       {/* Diálogo de Confirmación de Cierre de Sesión */}
