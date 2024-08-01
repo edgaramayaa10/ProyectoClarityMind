@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
 
 const CardLogIn: React.FC = () => {
     const [username, setUsername] = useState<string>('');
@@ -26,7 +25,6 @@ const CardLogIn: React.FC = () => {
                 const token = data.accessToken; // Ajusta 'accessToken' al nombre exacto del campo en la respuesta
                 localStorage.setItem('token', token); // Guarda el token en localStorage o en otro lugar seguro
                 localStorage.setItem('isAuthenticated', 'true');
-                toast.success('Inicio de sesión completado'); // Añade la alerta de éxito
                 navigate('/'); // Redirige a la página principal
             } else {
                 const errorData = await response.json();

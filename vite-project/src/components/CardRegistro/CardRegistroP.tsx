@@ -1,6 +1,5 @@
 import React, { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
 
 const CardLogIn: React.FC = () => {
     const [name, setName] = useState<string>('');
@@ -29,7 +28,6 @@ const CardLogIn: React.FC = () => {
 
             const data = await response.json();
             console.log('Registro exitoso', data);
-            toast.success('Registro completado'); // Añade la alerta de éxito
             navigate('/'); // Cambia la ruta de navegación según sea necesario
 
         } catch (error) {
