@@ -1,7 +1,7 @@
 // src/App.tsx
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Toaster } from 'sonner'
+
 import CardLogIn from './components/CardLogIn/CardLogIn';
 import NavBarComponent from './components/NavBarComponent';
 import CardRegistroP from './components/CardRegistro/CardRegistroP';
