@@ -8,6 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
+import { styled } from '@mui/material/styles';
 
 import MeditacionVisualizaciones from "./MeditacionVisualizaciones";
 import RelajacionEscaneo from "./RelajacionEscaneo";
@@ -51,8 +52,15 @@ const MeditacionGuiada = () => {
     ));
   };
 
+  const BrownCheckbox = styled(Checkbox)({
+    color: '#8B4513', // Marrón claro para el color no marcado
+    '&.Mui-checked': {
+      color: '#8B4513', // Marrón claro para el color marcado
+    },
+  });
+
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", bgcolor: "#fff" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -66,6 +74,7 @@ const MeditacionGuiada = () => {
             width: 300,
             boxSizing: "border-box",
             marginTop: "100px",
+            bgcolor: "#fbf7f0", // Fondo del Drawer
           },
         }}
         variant="permanent"
@@ -89,7 +98,7 @@ const MeditacionGuiada = () => {
                   },
                 }}
               >
-                <Checkbox
+                <BrownCheckbox
                   checked={selectedTexts.includes(text)}
                   onChange={() => handleCheckboxChange(text)}
                 />
@@ -103,7 +112,7 @@ const MeditacionGuiada = () => {
         component="main"
         sx={{
           flexGrow: 1,
-          bgcolor: "background.default",
+          bgcolor: "#fff",
           p: 3,
           marginLeft: "280px",
         }}
