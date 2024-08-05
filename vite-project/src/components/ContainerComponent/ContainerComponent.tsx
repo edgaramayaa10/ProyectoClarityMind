@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import hardvard from '../IMG/1.png';
 import elisabeth from '../IMG/2.png';
-import oms from '../IMG/3.png';
+import oms from '../IMG/Correcion_oms.png.png';
 import laureys from '../IMG/4.png';
 import hopkins from '../IMG/5.png';
 import yale from '../IMG/6.png';
